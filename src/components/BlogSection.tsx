@@ -32,59 +32,61 @@ const blogPosts = [
 
 const BlogSection = () => {
   return (
-    <section className="py-10 md:py-10 bg-gray-50">
-      <div className="container">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Latest Articles
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl">
-              Thoughts and insights on data products, analytics, and industry
-              trends.
-            </p>
+    <div id="section-articles">
+      <section className="py-10 md:py-10 bg-gray-50">
+        <div className="container">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Latest Articles
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl">
+                Thoughts and insights on data products, analytics, and industry
+                trends.
+              </p>
+            </div>
+            <Button
+              variant="outline"
+              className="border-1 border-gray-800 hover:bg-gray-200"
+            >
+              View all articles
+            </Button>
           </div>
-          <Button
-            variant="outline"
-            className="border-1 border-gray-800 hover:bg-gray-200"
-          >
-            View all articles
-          </Button>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <Card key={index} className="card-hover animate-fade-in">
-              <CardContent className="p-0">
-                <div className="h-48 bg-gradient-to-r from-navy-700 to-teal-700 relative">
-                  <div className="absolute bottom-4 left-4">
-                    <span className="px-2 py-1 bg-white text-navy-800 text-xs font-medium rounded">
-                      {post.category}
-                    </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post, index) => (
+              <Card key={index} className="card-hover animate-fade-in">
+                <CardContent className="p-0">
+                  <div className="h-48 bg-gradient-to-r from-navy-700 to-teal-700 relative">
+                    <div className="absolute bottom-4 left-4">
+                      <span className="px-2 py-1 bg-white text-navy-800 text-xs font-medium rounded">
+                        {post.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between text-sm text-gray-500 mb-2">
-                    <span>{post.date}</span>
-                    <span>{post.readTime}</span>
+                  <div className="p-6">
+                    <div className="flex justify-between text-sm text-gray-500 mb-2">
+                      <span>{post.date}</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{post.title}</h3>
+                    <p className="text-gray-600 mb-4">{post.excerpt}</p>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{post.title}</h3>
-                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                </div>
-              </CardContent>
-              <CardFooter className="px-6 pb-6 pt-0">
-                <Button
-                  variant="link"
-                  className="p-0 h-auto flex items-center gap-1 text-primary font-medium"
-                >
-                  Read more <ArrowRight size={16} />
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+                </CardContent>
+                <CardFooter className="px-6 pb-6 pt-0">
+                  <Button
+                    variant="link"
+                    className="p-0 h-auto flex items-center gap-1 text-primary font-medium"
+                  >
+                    Read more <ArrowRight size={16} />
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
