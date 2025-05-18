@@ -94,20 +94,17 @@ const NavBar = () => {
             </DropdownMenu>
           ) : (
             <>
-              <Button variant="ghost" size="sm" className="hidden md:flex">
+              <Button
+                variant="destructive"
+                size="sm"
+                className="hidden md:flex"
+              >
                 Resume
               </Button>
               <Button className="bg-gradient-to-r from-navy-800 to-teal-700 hover:from-navy-700 hover:to-teal-600 text-white">
                 Contact
               </Button>
             </>
-          )}
-
-          {/* Only show contact button on desktop */}
-          {!isMobile && (
-            <Button className="bg-gradient-to-r from-navy-800 to-teal-700 hover:from-navy-700 hover:to-teal-600 text-white">
-              Contact
-            </Button>
           )}
         </div>
       </div>
