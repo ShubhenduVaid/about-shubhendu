@@ -1,39 +1,26 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Server, Database, ArrowRight } from "lucide-react";
+import data from "../data";
 
 const AboutSection = () => {
+  const { about } = data;
   return (
     <div id="section-about">
       <section className="py-10 md:py-10 bg-gray-50">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-            <p className="text-lg text-gray-600">
-              Engineering Leader with a passion for building scalable,
-              high-quality software that delivers exceptional customer
-              experiences.
-            </p>
+            <p className="text-lg text-gray-600">{about?.headline}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
-              <p className="text-m">
-                With over 14 years of experience in software engineering and
-                leadership, I specialize in building enterprise-grade
-                applications using modern technologies and architectures.
-              </p>
-              <p className="text-m">
-                My expertise encompasses event-driven architecture,
-                microservices, and cloud-native applications. I'm passionate
-                about coaching, mentoring, and pair programming, believing that
-                collaborative teams deliver the best solutions.
-              </p>
-              <p className="text-m">
-                Currently, I'm focused on rebuilding B2B Sales experiences and
-                developing convergent platforms that enable seamless integration
-                of diverse products and services.
-              </p>
+              {about?.contents.map((item, index) => (
+                <div key={index} className="text-left">
+                  <p className="text-gray-600">{item}</p>
+                </div>
+              ))}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -1,39 +1,10 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { CalendarIcon } from "lucide-react";
-
-const experiences = [
-  {
-    title: "Principal Engineer",
-    company: "BT Group",
-    period: "08/2023 - Present",
-    description:
-      "Leading the rebuild of B2B Sales and Renewal experience. Architected the Convergence Platform for seamless product integration. Developing Multibrand Framework for multiple brands from a single codebase. Overseeing 8 engineering squads.",
-  },
-  {
-    title: "Software Engineering Manager",
-    company: "BT Group",
-    period: "04/2022 - 07/2023",
-    description:
-      "Developed e-commerce transaction journeys for Business Broadband. Architected migration to in-house AWS-based solutions. Led a team of 7 engineers implementing automated testing and CI/CD pipelines.",
-  },
-  {
-    title: "Lead Software Engineer",
-    company: "JPMorgan Chase & Co",
-    period: "03/2021 - 03/2022",
-    description:
-      "Engineered a digital platform for investment banking. Streamlined integration among apps for trading applications. Automated onboarding of apps onto our platform. Mentored junior engineers.",
-  },
-  {
-    title: "Lead Software Engineer",
-    company: "PwC",
-    period: "03/2020 - 02/2021",
-    description:
-      "Designed a KYC solution from scratch, scaling APIs to handle 6,000 requests per minute using Java and MongoDB. Led a team of 4 developers, implementing TDD and observability for robust performance.",
-  },
-];
+import data from "../data";
 
 const ExperienceSection = () => {
+  const { experiences } = data;
   return (
     <div id="section-experience">
       <section className="py-10 md:py-10">
@@ -69,6 +40,9 @@ const ExperienceSection = () => {
                           <h4 className="text-primary font-medium mb-2">
                             {exp.company}
                           </h4>
+                          <h4 className="text-primary font-medium mb-2">
+                            {exp.location}
+                          </h4>
                           <div className="flex items-center text-gray-500 mb-4 md:justify-end">
                             <CalendarIcon className="mr-1" size={16} />
                             <span className="text-sm">{exp.period}</span>
@@ -88,6 +62,9 @@ const ExperienceSection = () => {
                           <h3 className="text-xl font-bold">{exp.title}</h3>
                           <h4 className="text-primary font-medium mb-2">
                             {exp.company}
+                          </h4>
+                          <h4 className="text-primary font-medium mb-2">
+                            {exp.location}
                           </h4>
                           <div className="flex items-center text-gray-500 mb-4">
                             <CalendarIcon className="mr-1" size={16} />
