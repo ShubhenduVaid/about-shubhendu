@@ -4,15 +4,15 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="py-20 md:py-32 overflow-hidden">
+    <section className="py-10 md:py-10 overflow-hidden">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
                 <span className="gradient-text">Shubhendu Vaid</span>
               </h1>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy-800">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy-800">
                 Principal Engineer
               </h2>
               <p className="text-lg md:text-xl text-gray-600 max-w-xl">
@@ -23,12 +23,12 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-navy-800 hover:bg-navy-700 text-white">
+              <Button className="bg-[#007bff] hover:bg-[#0056b3]/90 text-white rounded-md">
                 View my work
               </Button>
               <Button
                 variant="outline"
-                className="border-navy-800 text-navy-800"
+                className="border-1 border-gray-800 hover:bg-gray-200"
               >
                 Read my blog
               </Button>

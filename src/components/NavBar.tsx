@@ -19,11 +19,10 @@ const NavBar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
+    { to: "/about", label: "About Me" },
     { to: "/experience", label: "Experience" },
-    { to: "/blog", label: "Blog" },
-    { to: "/contact", label: "Contact" },
+    { to: "/blog", label: "Latest Articles" },
+    { to: "/contact", label: "Get In Touch" },
   ];
 
   return (
@@ -43,7 +42,7 @@ const NavBar = () => {
               <Link
                 key={link.to}
                 href={link.to}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium text-black hover:text-blue-600 transition-colors"
               >
                 {link.label}
               </Link>
@@ -94,15 +93,8 @@ const NavBar = () => {
             </DropdownMenu>
           ) : (
             <>
-              <Button
-                variant="destructive"
-                size="sm"
-                className="hidden md:flex"
-              >
-                Resume
-              </Button>
-              <Button className="bg-gradient-to-r from-navy-800 to-teal-700 hover:from-navy-700 hover:to-teal-600 text-white">
-                Contact
+              <Button className="bg-[#007bff] hover:bg-[#0056b3]/90 text-white rounded-md">
+                Get Resume
               </Button>
             </>
           )}

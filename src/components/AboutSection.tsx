@@ -4,7 +4,7 @@ import { Code, Server, Database, ArrowRight } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section className="section bg-gray-50">
+    <section className="py-10 md:py-10 bg-gray-50">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
@@ -15,7 +15,7 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <p className="text-lg">
               With over 14 years of experience in software engineering and
@@ -66,7 +66,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
                   <Database className="text-green-600" size={24} />
                 </div>
-                <h3 className="font-medium mb-2">Data Systems</h3>
+                <h3 className="font-medium mb-2">Database Systems</h3>
                 <p className="text-sm text-gray-500">
                   MongoDB, PostgreSQL, Cassandra for scalable data solutions
                 </p>
