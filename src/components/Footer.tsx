@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-900 text-white py-12">
+    <footer className="bg-blue-950 text-white py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -104,20 +104,6 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row md:justify-between text-sm text-gray-400">
           <p>© {currentYear} Shubhendu Vaid. All rights reserved.</p>
-          <div className="mt-4 md:mt-0 space-x-4">
-            <Link
-              href="/privacy"
-              className="hover:text-primary transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="hover:text-primary transition-colors"
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

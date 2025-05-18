@@ -19,10 +19,10 @@ const NavBar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { to: "/about", label: "About Me" },
-    { to: "/experience", label: "Experience" },
-    { to: "/blog", label: "Latest Articles" },
-    { to: "/contact", label: "Get In Touch" },
+    { to: "#section-about", label: "About Me" },
+    { to: "#section-experience", label: "Experience" },
+    { to: "#section-articles", label: "Latest Articles" },
+    { to: "#section-contact", label: "Get In Touch" },
   ];
 
   return (
