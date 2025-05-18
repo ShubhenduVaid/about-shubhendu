@@ -15,20 +15,20 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
-            <p className="text-lg">
+            <p className="text-m">
               With over 14 years of experience in software engineering and
               leadership, I specialize in building enterprise-grade applications
               using modern technologies and architectures.
             </p>
-            <p>
+            <p className="text-m">
               My expertise encompasses event-driven architecture, microservices,
               and cloud-native applications. I'm passionate about coaching,
               mentoring, and pair programming, believing that collaborative
               teams deliver the best solutions.
             </p>
-            <p>
+            <p className="text-m">
               Currently, I'm focused on rebuilding B2B Sales experiences and
               developing convergent platforms that enable seamless integration
               of diverse products and services.
@@ -54,7 +54,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
                   <Server className="text-purple-600" size={24} />
                 </div>
-                <h3 className="font-medium mb-2">Backend Systems</h3>
+                <h3 className="font-medium mb-2">Backend Engineering</h3>
                 <p className="text-sm text-gray-500">
                   Node.js, Java, Microservices, Event-Driven Architecture, Kafka
                 </p>
@@ -80,7 +80,7 @@ const AboutSection = () => {
                 </div>
                 <h3 className="font-medium mb-2">Leadership</h3>
                 <p className="text-sm text-gray-500">
-                  Team management, technical mentoring, and strategic roadmap
+                  Team management, technical mentoring, and technical strategy
                   development
                 </p>
               </CardContent>

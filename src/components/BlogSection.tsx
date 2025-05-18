@@ -32,7 +32,7 @@ const blogPosts = [
 
 const BlogSection = () => {
   return (
-    <section className="section bg-gray-50">
+    <section className="py-10 md:py-10 bg-gray-50">
       <div className="container">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12">
           <div>
@@ -44,7 +44,10 @@ const BlogSection = () => {
               trends.
             </p>
           </div>
-          <Button className="mt-4 md:mt-0" variant="outline">
+          <Button
+            variant="outline"
+            className="border-1 border-gray-800 hover:bg-gray-200"
+          >
             View all articles
           </Button>
         </div>
