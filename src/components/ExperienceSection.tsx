@@ -35,7 +35,7 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section className="section">
+    <section className="py-10 md:py-10">
       <div className="container">
         <div className="max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
