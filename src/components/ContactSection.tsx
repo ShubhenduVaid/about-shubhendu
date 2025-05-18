@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { siGithub } from "simple-icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,6 +22,23 @@ const GitHubIcon = ({ size = 20, className = "" }) => (
 );
 
 const ContactSection = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  function handleSendMail(
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void {
+    event.preventDefault();
+    const mailto = `mailto:vaidshubhendu@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
+    )}`;
+    window.location.href = mailto;
+  }
+
   return (
     <div id="section-contact">
       <section className="py-10 md:py-10">
@@ -38,7 +57,7 @@ const ContactSection = () => {
             <div className="space-y-6">
               <h3 className="text-2xl font-bold">Let's Connect</h3>
               <p className="text-gray-600">
-                I'm always open to discussing engineering leadership,
+                I'm always open to discuss on engineering, leadership,
                 architecture, or new opportunities. Whether you have a question
                 or just want to say hi, I'll try my best to get back to you!
               </p>
@@ -120,13 +139,20 @@ const ContactSection = () => {
                         <label htmlFor="name" className="text-sm font-medium">
                           Name
                         </label>
-                        <Input id="name" placeholder="Your name" />
+                        <Input
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          id="name"
+                          placeholder="Your name"
+                        />
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="email" className="text-sm font-medium">
                           Email
                         </label>
                         <Input
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                           id="email"
                           type="email"
                           placeholder="Your email"
@@ -138,7 +164,12 @@ const ContactSection = () => {
                       <label htmlFor="subject" className="text-sm font-medium">
                         Subject
                       </label>
-                      <Input id="subject" placeholder="What's this about?" />
+                      <Input
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                        id="subject"
+                        placeholder="What's this about?"
+                      />
                     </div>
 
                     <div className="space-y-2">
@@ -146,13 +177,18 @@ const ContactSection = () => {
                         Message
                       </label>
                       <Textarea
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                         id="message"
                         placeholder="Your message"
                         rows={4}
                       />
                     </div>
 
-                    <Button className="w-full bg-[#007bff] hover:bg-[#0056b3]/90 text-white rounded-md">
+                    <Button
+                      onClick={handleSendMail}
+                      className="w-full bg-[#007bff] hover:bg-[#0056b3]/90 text-white rounded-md"
+                    >
                       Send Message
                     </Button>
                   </form>
