@@ -37,7 +37,7 @@ const ExperienceSection = () => {
   return (
     <section className="py-10 md:py-10">
       <div className="container">
-        <div className="max-w-3xl mx-auto mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Professional Experience
           </h2>
@@ -54,11 +54,11 @@ const ExperienceSection = () => {
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`relative md:flex ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                className={`my-0 md:my-0 relative md:flex ${
+                  index % 2 === 0 ? "md:flex-row" : ""
                 }`}
               >
-                <div className="hidden md:block absolute left-1/2 top-5 -ml-2.5 w-5 h-5 rounded-full bg-primary border-4 border-white shadow"></div>
+                <div className="hidden md:block absolute left-1/2 top-5 -ml-2.5 w-5 h-5 rounded-full bg-black border-4 border-white shadow"></div>
 
                 <div className="md:w-1/2 pb-8 md:pb-0 md:pr-8 md:text-right">
                   {index % 2 === 0 ? (

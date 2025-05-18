@@ -1,23 +1,10 @@
 import React from "react";
-import { siLinkerd, siGithub } from "simple-icons";
+import { siGithub } from "simple-icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, ArrowRight } from "lucide-react";
-
-const LinkedInIcon = ({ size = 20, className = "" }) => (
-  <svg
-    role="img"
-    viewBox="0 0 24 24"
-    width={size}
-    height={size}
-    className={className}
-    fill="currentColor"
-  >
-    <path d={siLinkerd.path} />
-  </svg>
-);
+import { Mail, ArrowRight, Linkedin } from "lucide-react";
 
 const GitHubIcon = ({ size = 20, className = "" }) => (
   <svg
@@ -34,7 +21,7 @@ const GitHubIcon = ({ size = 20, className = "" }) => (
 
 const ContactSection = () => {
   return (
-    <section className="section">
+    <section className="py-10 md:py-10">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
@@ -44,7 +31,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
           <div className="space-y-6">
             <h3 className="text-2xl font-bold">Let's Connect</h3>
             <p className="text-gray-600">
@@ -77,7 +64,7 @@ const ContactSection = () => {
               <Card className="card-hover">
                 <CardContent className="p-6 flex gap-4">
                   <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-                    <LinkedInIcon className="text-green-600" size={20} />
+                    <Linkedin className="text-green-600" size={20} />
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">LinkedIn</h4>
@@ -154,11 +141,11 @@ const ContactSection = () => {
                     <Textarea
                       id="message"
                       placeholder="Your message"
-                      rows={5}
+                      rows={4}
                     />
                   </div>
 
-                  <Button className="w-full bg-gradient-to-r from-navy-800 to-teal-700 hover:from-navy-700 hover:to-teal-600">
+                  <Button className="w-full bg-[#007bff] hover:bg-[#0056b3]/90 text-white rounded-md">
                     Send Message
                   </Button>
                 </form>
