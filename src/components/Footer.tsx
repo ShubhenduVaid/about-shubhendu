@@ -12,12 +12,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Shubhendu Vaid</h3>
             <p className="text-gray-300 mb-4 max-w-xs">
-              Principal Engineer specializing in event-driven architecture and
+              Engineering Leader specializing in event-driven architecture and
               distributed systems
             </p>
             <div className="flex space-x-4">
               <a
                 href="https://www.linkedin.com/in/shubhendu-vaid-ba74a997/"
+                target="_blank"
                 aria-label="LinkedIn"
                 className="hover:text-primary transition-colors"
               >
@@ -25,6 +26,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://github.com/ShubhenduVaid"
+                target="_blank"
                 aria-label="GitHub"
                 className="hover:text-primary transition-colors"
               >
@@ -32,6 +34,7 @@ const Footer = () => {
               </a>
               <a
                 href="mailto:vaidshubhendu@gmail.com"
+                target="_blank"
                 aria-label="Email"
                 className="hover:text-primary transition-colors"
               >
@@ -45,23 +48,15 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/"
+                  href="/#section-about"
                   className="text-gray-300 hover:text-primary transition-colors"
                 >
-                  Home
+                  About Me
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/about"
-                  className="text-gray-300 hover:text-primary transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/experience"
+                  href="/#section-experience"
                   className="text-gray-300 hover:text-primary transition-colors"
                 >
                   Experience
@@ -69,7 +64,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/#section-articles"
                   className="text-gray-300 hover:text-primary transition-colors"
                 >
                   Blog

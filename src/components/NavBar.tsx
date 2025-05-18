@@ -93,7 +93,7 @@ const NavBar = () => {
             </DropdownMenu>
           ) : (
             <>
-              <Button className="bg-[#007bff] hover:bg-[#0056b3]/90 text-white rounded-md">
+              <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
                 Get Resume
               </Button>
             </>

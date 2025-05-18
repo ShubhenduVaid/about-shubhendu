@@ -21,6 +21,17 @@ const GitHubIcon = ({ size = 20, className = "" }) => (
   </svg>
 );
 
+const data = {
+  getInTouch: "Get In Touch",
+  interestedInWorking:
+    "Interested in working together or have questions? Feel free to reach out.",
+  letsConnect: "Let's Connect",
+  alwaysOpenToDiscuss:
+    "I'm always open to discuss on engineering, leadership, architecture, or new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+  emailMe: "Email Me",
+  forGeneralInquiries: "For general inquiries and opportunities",
+};
+
 const ContactSection = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -45,22 +56,15 @@ const ContactSection = () => {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Get In Touch
+              {data?.getInTouch}
             </h2>
-            <p className="text-lg text-gray-600">
-              Interested in working together or have questions? Feel free to
-              reach out.
-            </p>
+            <p className="text-lg text-gray-600">{data?.interestedInWorking}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold">Let's Connect</h3>
-              <p className="text-gray-600">
-                I'm always open to discuss on engineering, leadership,
-                architecture, or new opportunities. Whether you have a question
-                or just want to say hi, I'll try my best to get back to you!
-              </p>
+              <h3 className="text-2xl font-bold">{data?.letsConnect}</h3>
+              <p className="text-gray-600">{data?.alwaysOpenToDiscuss}</p>
 
               <div className="space-y-6 mt-8">
                 <Card className="card-hover">
@@ -69,9 +73,9 @@ const ContactSection = () => {
                       <Mail className="text-blue-600" size={20} />
                     </div>
                     <div>
-                      <h4 className="font-medium mb-1">Email Me</h4>
+                      <h4 className="font-medium mb-1">{data?.emailMe}</h4>
                       <p className="text-gray-600 text-sm mb-2">
-                        For general inquiries and opportunities
+                        {data?.forGeneralInquiries}
                       </p>
                       <a
                         href="mailto:vaidshubhendu@gmail.com"
@@ -187,7 +191,7 @@ const ContactSection = () => {
 
                     <Button
                       onClick={handleSendMail}
-                      className="w-full bg-[#007bff] hover:bg-[#0056b3]/90 text-white rounded-md"
+                      className="w-full bg-teal-900 hover:bg-teal-600 text-white rounded-md"
                     >
                       Send Message
                     </Button>
