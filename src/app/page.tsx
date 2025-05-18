@@ -1,17 +1,17 @@
-import Image from "next/image";
+import AboutSection from "@/components/AboutSection";
+import BlogSection from "@/components/BlogSection";
+import ContactSection from "@/components/ContactSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold">Hello World</h1>
-      <p className="mt-4 text-lg">Welcome to my Next.js app!</p>
-      <Image
-        src="/next.svg"
-        alt="Next.js Logo"
-        width={180}
-        height={37}
-        priority
-      />
+    <main className="flex-grow">
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <BlogSection />
+      <ContactSection />
     </main>
   );
 }
