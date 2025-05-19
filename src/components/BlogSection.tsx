@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
@@ -42,9 +43,9 @@ const blogPosts = [
 const BlogSection = () => {
   return (
     <div id="section-articles">
-      <section className="py-10 md:py-10 bg-gray-50">
-        <div className="container">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12">
+      <section className="py-5 md:py-10 bg-gray-50">
+        <div className="container text-center md:text-left">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-6 md:mb-10">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Latest Articles
@@ -56,21 +57,29 @@ const BlogSection = () => {
             </div>
             <Button
               variant="outline"
-              className="border-1 border-gray-800 hover:bg-gray-200"
+              className="border-1 border-gray-800 hover:bg-gray-200 mt-4 md:mt-0"
             >
               View all articles
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {blogPosts.map((post, index) => (
               <Card key={index} className="card-hover animate-fade-in">
                 <CardContent className="p-0">
                   <div className="h-48 bg-gradient-to-r from-navy-700 to-teal-700 relative">
-                    <img
+                    <Image
                       src={post.image}
                       alt={post.title}
+                      fill
                       className="w-full h-full object-cover rounded-tl-lg rounded-tr-lg"
+                      style={{
+                        objectFit: "cover",
+                        borderTopLeftRadius: "0.5rem",
+                        borderTopRightRadius: "0.5rem",
+                      }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={index === 0}
                     />
                     <div className="absolute bottom-4 left-4">
                       <span className="px-2 py-1 border-1 border-black shadow-2xl bg-white text-navy-800 text-xs  font-medium rounded">

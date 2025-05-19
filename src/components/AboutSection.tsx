@@ -7,15 +7,15 @@ const AboutSection = () => {
   const { about } = data;
   return (
     <div id="section-about">
-      <section className="py-10 md:py-10 bg-gray-50">
+      <section className="py-5 md:py-10 bg-gray-50">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-3xl mx-auto text-center mb-6 md:mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
             <p className="text-lg text-gray-600">{about?.headline}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
+            <div className="space-y-6 hidden lg:block">
               {about?.contents.map((item, index) => (
                 <div key={index} className="text-left">
                   <p className="text-gray-600">{item}</p>

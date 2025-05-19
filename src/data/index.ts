@@ -135,14 +135,14 @@ const data = {
   contact: {
     email: "vaidshubhendu@gmail.com",
     phone: "+44 7835735172",
-    linkedin: "https://www.linkedin.com/in/shubhendu-vaid-ba74a997/",
+    linkedin: "https://www.linkedin.com/in/shubhendu-vaid/",
     github: "https://github.com/ShubhenduVaid",
     website: "https://shubhenduvaid.com",
   },
   socials: [
     {
       platform: "LinkedIn",
-      url: "https://www.linkedin.com/in/shubhendu-vaid-ba74a997/",
+      url: "https://www.linkedin.com/in/shubhendu-vaid/",
     },
     {
       platform: "GitHub",

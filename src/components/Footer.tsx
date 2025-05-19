@@ -7,15 +7,15 @@ const Footer = () => {
 
   return (
     <footer className="bg-blue-950 text-white py-12">
-      <div className="container">
+      <div className="container text-center md:text-left justify-center md:justify-left">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
+          <div className="text-center md:text-left justify-center md:justify-left">
             <h3 className="text-lg font-bold mb-4">Shubhendu Vaid</h3>
-            <p className="text-gray-300 mb-4 max-w-xs">
+            <p className="text-gray-300 mb-4">
               Engineering Leader specializing in event-driven architecture and
               distributed systems
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <a
                 href="https://www.linkedin.com/in/shubhendu-vaid-ba74a997/"
                 target="_blank"

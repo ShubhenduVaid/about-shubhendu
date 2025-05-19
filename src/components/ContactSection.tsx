@@ -52,9 +52,9 @@ const ContactSection = () => {
 
   return (
     <div id="section-contact">
-      <section className="py-10 md:py-10">
+      <section className="py-5 md:py-10">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-3xl mx-auto text-center mb-6 md:mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {data?.getInTouch}
             </h2>
@@ -63,8 +63,12 @@ const ContactSection = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold">{data?.letsConnect}</h3>
-              <p className="text-gray-600">{data?.alwaysOpenToDiscuss}</p>
+              <h3 className="text-2xl font-bold text-center md:text-left">
+                {data?.letsConnect}
+              </h3>
+              <p className="text-gray-600 text-center md:text-left">
+                {data?.alwaysOpenToDiscuss}
+              </p>
 
               <div className="space-y-6 mt-8">
                 <Card className="card-hover">

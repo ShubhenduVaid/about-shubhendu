@@ -7,8 +7,8 @@ const HeroSection = () => {
   const { name, title, description, projects, contact } = data;
   return (
     <div id="section-hero">
-      <section className="py-10 md:py-10 overflow-hidden">
-        <div className="container">
+      <section className="py-5 md:py-10 overflow-hidden">
+        <div className="container text-center md:text-left">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-4">
@@ -23,16 +23,29 @@ const HeroSection = () => {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-4">
-                <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
-                  View my work
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-1 border-gray-800 hover:bg-gray-200"
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                <a
+                  href={contact?.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
                 >
-                  Read my blog
-                </Button>
+                  <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
+                    View my work
+                  </Button>
+                </a>
+                <a
+                  href={"#section-articles"}
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Button
+                    variant="outline"
+                    className="border-1 border-gray-800 hover:bg-gray-200"
+                  >
+                    Read my blog
+                  </Button>
+                </a>
               </div>
             </div>
 

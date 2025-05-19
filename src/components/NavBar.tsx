@@ -68,22 +68,29 @@ const NavBar = () => {
                   )}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-[200px] mt-2">
+              <DropdownMenuContent
+                align="end"
+                className="w-[200px] mt-2 bg-white/95 backdrop-blur-sm"
+              >
                 {navLinks.map((link) => (
-                  <DropdownMenuItem key={link.to} asChild>
+                  <DropdownMenuItem
+                    key={link.to}
+                    asChild
+                    className="focus:bg-gray-100"
+                  >
                     <Link
                       href={link.to}
-                      className="w-full text-sm"
+                      className="w-full text-sm py-2 px-3"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
                     </Link>
                   </DropdownMenuItem>
                 ))}
-                <DropdownMenuItem asChild>
+                <DropdownMenuItem asChild className="focus:bg-gray-100">
                   <a
                     href="/resume.pdf"
-                    className="w-full text-sm"
+                    className="w-full text-sm py-2 px-3"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Resume
