@@ -17,7 +17,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
               <a
-                href="https://www.linkedin.com/in/shubhendu-vaid-ba74a997/"
+                href="https://www.linkedin.com/in/shubhendu-vaid/"
                 target="_blank"
                 aria-label="LinkedIn"
                 className="hover:text-primary transition-colors"

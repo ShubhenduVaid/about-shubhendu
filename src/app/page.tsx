@@ -9,8 +9,8 @@ export default function Home() {
     <main className="flex-grow">
       <HeroSection />
       <AboutSection />
-      <ExperienceSection />
       <BlogSection />
+      <ExperienceSection />
       <ContactSection />
     </main>
   );

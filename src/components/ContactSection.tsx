@@ -102,7 +102,7 @@ const ContactSection = () => {
                         Connect with me professionally
                       </p>
                       <a
-                        href="https://www.linkedin.com/in/shubhendu-vaid-ba74a997/"
+                        href="https://www.linkedin.com/in/shubhendu-vaid/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary font-medium hover:underline flex items-center gap-1"
