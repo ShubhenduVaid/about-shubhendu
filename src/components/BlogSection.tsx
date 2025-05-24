@@ -42,7 +42,7 @@ const blogPosts = [
 
 const BlogSection = () => {
   return (
-    <div id="section-articles">
+    <div title="Latest Articles" id="section-articles">
       <section className="py-5 md:py-10 bg-gray-50">
         <div className="container text-center md:text-left">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-6 md:mb-10">
@@ -71,6 +71,7 @@ const BlogSection = () => {
                     <Image
                       src={post.image}
                       alt={post.title}
+                      title={post.title}
                       fill
                       className="w-full h-full object-cover rounded-tl-lg rounded-tr-lg"
                       style={{
@@ -98,6 +99,7 @@ const BlogSection = () => {
                 </CardContent>
                 <CardFooter className="px-6 pb-6 pt-0">
                   <a
+                    title="Read more about this article"
                     href={post?.link}
                     target="_blank"
                     rel="noopener noreferrer"

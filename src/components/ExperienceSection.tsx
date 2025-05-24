@@ -12,7 +12,7 @@ const ExperienceSection = () => {
 
   const { experiences } = data;
   return (
-    <div id="section-experience">
+    <div title="Experience" id="section-experience">
       <section className="py-5 md:py-10">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-6 md:mb-10">
