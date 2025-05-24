@@ -109,14 +109,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://shubhenduvaid.com",
+    url: "https://www.shubhenduvaid.com",
     siteName: "Shubhendu Vaid - About Me",
     title: "Shubhendu Vaid - Engineering Leader",
     description:
       "Engineering Leader with 14+ years of experience in building scalable software solutions.",
     images: [
       {
-        url: "https://shubhenduvaid.com/opengraph-image.jpg",
+        url: "https://www.shubhenduvaid.com/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Shubhendu Vaid",
@@ -128,7 +128,7 @@ export const metadata: Metadata = {
     title: "Shubhendu Vaid - Engineering Leader",
     description:
       "Engineering Leader with 14+ years of experience in building scalable software solutions.",
-    images: ["https://shubhenduvaid.com/opengraph-image.jpg"],
+    images: ["https://www.shubhenduvaid.com/opengraph-image.jpg"],
   },
 };
 
@@ -142,7 +142,7 @@ export default function RootLayout({
       <head>
         <link
           rel="canonical"
-          href="https://shubhenduvaid.com/"
+          href="https://www.shubhenduvaid.com"
           key="canonical"
         />
       </head>

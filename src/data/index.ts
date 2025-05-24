@@ -137,7 +137,7 @@ const data = {
     phone: "+44 7835735172",
     linkedin: "https://www.linkedin.com/in/shubhendu-vaid/",
     github: "https://github.com/ShubhenduVaid",
-    website: "https://shubhenduvaid.com",
+    website: "https://www.shubhenduvaid.com",
   },
   socials: [
     {

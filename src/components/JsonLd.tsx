@@ -7,7 +7,7 @@ export default function JsonLd() {
     name: data.name,
     jobTitle: data.title,
     description: data.description,
-    url: "https://shubhenduvaid.com",
+    url: "https://www.shubhenduvaid.com",
     sameAs: [data.contact.linkedin, data.contact.github],
     worksFor: {
       "@type": "Organization",
