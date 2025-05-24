@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shubhenduvaid.com/sitemap.xml
+Sitemap: https://www.shubhenduvaid.com/sitemap.xml
