@@ -109,7 +109,7 @@ const BlogSection = () => {
                       variant="link"
                       className="p-0 h-auto flex items-center gap-1 text-primary font-medium"
                     >
-                      Read more <ArrowRight size={16} />
+                      Read more about this article <ArrowRight size={16} />
                     </Button>
                   </a>
                 </CardFooter>
