@@ -80,6 +80,7 @@ const Footer = () => {
             </p>
             <p className="text-gray-300 mb-2">
               <a
+                title="Email Shubhendu Vaid"
                 href="mailto:vaidshubhendu@gmail.com"
                 className="hover:text-primary transition-colors"
               >
@@ -88,6 +89,7 @@ const Footer = () => {
             </p>
             <p className="text-gray-300">
               <a
+                title="Call Shubhendu Vaid"
                 href="tel:+447835735172"
                 className="hover:text-primary transition-colors"
               >

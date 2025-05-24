@@ -51,7 +51,7 @@ const ContactSection = () => {
   }
 
   return (
-    <div id="section-contact">
+    <div title="Get In Touch" id="section-contact">
       <section className="py-5 md:py-10">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-6 md:mb-10">

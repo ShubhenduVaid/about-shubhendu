@@ -6,7 +6,7 @@ import data from "../data";
 const AboutSection = () => {
   const { about } = data;
   return (
-    <div id="section-about">
+    <div title="About Me" id="section-about">
       <section className="py-5 md:py-10 bg-gray-50">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-6 md:mb-10">
