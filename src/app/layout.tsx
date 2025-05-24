@@ -110,13 +110,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     url: "https://shubhenduvaid.com",
-    siteName: "Shubhendu Vaid",
+    siteName: "Shubhendu Vaid - About Me",
     title: "Shubhendu Vaid - Engineering Leader",
     description:
       "Engineering Leader with 14+ years of experience in building scalable software solutions.",
     images: [
       {
-        url: "https://shubhenduvaid.com/og-image.jpg",
+        url: "https://shubhenduvaid.com/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Shubhendu Vaid",
@@ -128,10 +128,7 @@ export const metadata: Metadata = {
     title: "Shubhendu Vaid - Engineering Leader",
     description:
       "Engineering Leader with 14+ years of experience in building scalable software solutions.",
-    images: ["https://shubhenduvaid.com/og-image.jpg"],
-  },
-  verification: {
-    google: "your-google-site-verification-code",
+    images: ["https://shubhenduvaid.com/opengraph-image.jpg"],
   },
 };
 
@@ -143,24 +140,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
         <link
           rel="canonical"
           href="https://shubhenduvaid.com/"
