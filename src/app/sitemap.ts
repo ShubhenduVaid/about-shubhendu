@@ -1,36 +1,51 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://www.shubhenduvaid.com';
+  const currentDate = new Date();
+
   return [
     {
-      url: 'https://www.shubhenduvaid.com',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: 'https://www.shubhenduvaid.com/#section-about',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://www.shubhenduvaid.com/#section-experience',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://www.shubhenduvaid.com/#section-articles',
-      lastModified: new Date(),
+      url: baseUrl,
+      lastModified: currentDate,
       changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/#about`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/#experience`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/#skills`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://www.shubhenduvaid.com/#section-contact',
-      lastModified: new Date(),
+      url: `${baseUrl}/#projects`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/#articles`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/#contact`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
   ];
 }
