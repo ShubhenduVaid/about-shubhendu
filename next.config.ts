@@ -1,18 +1,31 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["miro.medium.com", "media.licdn.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'miro.medium.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   },
   headers: async () => {
     return [
       {
-        source: "/(.*)",
+        source: '/(.*)',
         headers: [
           {
-            key: "cache-control",
-            value: "max-age=0, s-maxage=86400",
+            key: 'cache-control',
+            value: 'max-age=0, s-maxage=86400',
           },
         ],
       },
