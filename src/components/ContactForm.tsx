@@ -133,7 +133,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       {status === 'success' && (
         <div className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
           <CheckCircle className="h-5 w-5" />
-          <span>Message sent successfully! I'll get back to you soon.</span>
+          <span>Message sent successfully! I&apos;ll get back to you soon.</span>
         </div>
       )}
 
