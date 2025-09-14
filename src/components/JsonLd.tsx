@@ -1,20 +1,20 @@
-import data from "@/data";
+import data from '@/data';
 
 export default function JsonLd() {
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
+    '@context': 'https://schema.org',
+    '@type': 'Person',
     name: data.name,
     jobTitle: data.title,
     description: data.description,
-    url: "https://www.shubhenduvaid.com",
+    url: 'https://www.shubhenduvaid.com',
     sameAs: [data.contact.linkedin, data.contact.github],
     worksFor: {
-      "@type": "Organization",
-      name: "BT Group",
+      '@type': 'Organization',
+      name: 'BT Group',
     },
     address: {
-      "@type": "PostalAddress",
+      '@type': 'PostalAddress',
       addressLocality: data.location,
     },
   };

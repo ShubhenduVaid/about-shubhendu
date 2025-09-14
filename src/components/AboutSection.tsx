@@ -1,7 +1,7 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Code, Server, Database, ArrowRight } from "lucide-react";
-import data from "../data";
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Code, Server, Database, ArrowRight } from 'lucide-react';
+import data from '../data';
 
 const AboutSection = () => {
   const { about } = data;

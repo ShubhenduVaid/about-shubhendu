@@ -1,8 +1,14 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import data from "../data";
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import data from '../data';
 
+/**
+ * HeroSection component displays the main landing section with personal information,
+ * including name, title, description, and call-to-action buttons.
+ *
+ * @returns {JSX.Element} The hero section component
+ */
 const HeroSection = () => {
   const { name, title, description, projects, contact } = data;
   return (
@@ -35,7 +41,7 @@ const HeroSection = () => {
                   </Button>
                 </a>
                 <a
-                  href={"#section-articles"}
+                  href={'#section-articles'}
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
