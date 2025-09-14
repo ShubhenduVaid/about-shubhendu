@@ -111,6 +111,46 @@ export default function JsonLd() {
     ]
   };
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': 'https://www.shubhenduvaid.com/#faq',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Who is Shubhendu Vaid?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Shubhendu Vaid is a Senior Software Engineering Manager at BT Group in London, UK, with 14+ years of experience building scalable software solutions. He specializes in Next.js, React, Node.js, AWS, and event-driven architecture.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'What is Shubhendu Vaid\'s current role and responsibilities?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Shubhendu currently serves as Senior Software Engineering Manager at BT Group, overseeing the Sales Convergence Tribe with 8 engineering squads. He defines technical strategy, rebuilds B2B sales experiences, and leads teams in developing convergent platforms for seamless product integration.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'What technologies does Shubhendu Vaid specialize in?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Shubhendu specializes in JavaScript, TypeScript, React, Next.js, Node.js, AWS, event-driven architecture, microservices, Java, and cloud-native applications. He has extensive experience with CI/CD, TDD, observability, and agile methodologies.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Where is Shubhendu Vaid located and available for work?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Shubhendu Vaid is based in London, UK, and is available for engineering leadership roles across the United Kingdom and Europe. He has experience working in London, Birmingham, Glasgow, and internationally in Poland and India.'
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <script
@@ -124,6 +164,10 @@ export default function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
     </>
   );

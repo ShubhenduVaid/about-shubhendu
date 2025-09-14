@@ -4,6 +4,8 @@ import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import HeroSection from '@/components/HeroSection';
+import FAQSection from '@/components/FAQSection';
+import StatsSection from '@/components/StatsSection';
 
 export const metadata: Metadata = {
   title: 'Shubhendu Vaid - Senior Engineering Leader & Software Architect | London, UK',
@@ -24,8 +26,10 @@ export default function Home() {
     <main className="flex-grow">
       <HeroSection />
       <AboutSection />
-      <BlogSection />
+      <StatsSection />
       <ExperienceSection />
+      <BlogSection />
+      <FAQSection />
       <ContactSection />
     </main>
   );
