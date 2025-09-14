@@ -23,7 +23,7 @@ const data: PersonalData = {
       company: 'BT Group',
       period: 'Sept 2023 - Present',
       description:
-        "Rebuilt Sales/Renew experience for telco/techco products using a scalable tech stack (Next.js, React, Node.js, Java, AWS), achieving increased conversion and zero order loss. Worked with cross-functional teams for building recommendation's for products and working on an LLM based help bot. Overseeing the Sales Convergence Tribe(8 engineering squads), defining the technical strategy and roadmaps.",
+        "Rebuilt Sales/Renew experience for telco/techco products using a scalable tech stack (Next.js, React, Node.js, Java, AWS), achieving increased conversion and zero order loss. Worked with cross-functional teams for building recommendations for products and working on an LLM-based help bot. Overseeing the Sales Convergence Tribe (8 engineering squads), defining the technical strategy and roadmaps.",
     },
     {
       title: 'Software Engineering Manager',
@@ -31,7 +31,7 @@ const data: PersonalData = {
       company: 'BT Group',
       period: 'Apr 2022 - Aug 2023',
       description:
-        'Developed transaction journeys(e-commerce) on business.bt.com using Next.js, React, and Typescript, improving page load times by 5x. Designed and led AWS migration, enhancing scalability and performance for cloud-based solutions. Hired and led a team of 7 engineers, introducing automated testing and CI/CD to reduce time-to-market.',
+        'Developed transaction journeys (e-commerce) on business.bt.com using Next.js, React, and TypeScript, improving page load times by 5x. Designed and led AWS migration, enhancing scalability and performance for cloud-based solutions. Hired and led a team of 7 engineers, introducing automated testing and CI/CD to reduce time-to-market.',
     },
     {
       title: 'Lead Software Engineer',

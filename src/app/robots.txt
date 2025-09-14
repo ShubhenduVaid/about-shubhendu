@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
 
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://www.shubhenduvaid.com/sitemap.xml
+
+# Additional sitemaps if needed
+# Sitemap: https://www.shubhenduvaid.com/blog-sitemap.xml
