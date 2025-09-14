@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import Link from "next/link";
+} from '@/components/ui/dropdown-menu';
+import Link from 'next/link';
 
 const NavBar = () => {
   const isMobile = useIsMobile();
@@ -19,10 +19,10 @@ const NavBar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { to: "#section-about", label: "About Me" },
-    { to: "#section-experience", label: "Experience" },
-    { to: "#section-articles", label: "Latest Articles" },
-    { to: "#section-contact", label: "Get In Touch" },
+    { to: '#section-about', label: 'About Me' },
+    { to: '#section-experience', label: 'Experience' },
+    { to: '#section-articles', label: 'Latest Articles' },
+    { to: '#section-contact', label: 'Get In Touch' },
   ];
 
   return (
@@ -100,9 +100,16 @@ const NavBar = () => {
             </DropdownMenu>
           ) : (
             <>
-              <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
-                Get Resume
-              </Button>
+              <a
+                href="https://www.hatchcv.com/shared-resume/0d8f0731-ece2-4509-ac30-c12127aeba7e"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
+                  Get Resume
+                </Button>
+              </a>
             </>
           )}
         </div>

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { CalendarIcon } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { CalendarIcon } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
-import data from "../data";
+import data from '../data';
 
 const ExperienceSection = () => {
   const isMobile = useIsMobile();
@@ -34,7 +34,7 @@ const ExperienceSection = () => {
                   <div
                     key={index}
                     className={`my-0 md:my-0 relative md:flex ${
-                      index % 2 === 0 ? "md:flex-row" : ""
+                      index % 2 === 0 ? 'md:flex-row' : ''
                     }`}
                   >
                     <div className="hidden md:block absolute left-1/2 top-5 -ml-2.5 w-5 h-5 rounded-full bg-blue-500 border-4 border-white shadow"></div>
