@@ -2,18 +2,18 @@ import { PersonalData } from '@/types';
 
 const data: PersonalData = {
   name: 'Shubhendu Vaid',
-  title: 'Engineering Leader',
+  title: 'Senior Software Engineering Manager & Engineering Leader',
   location: 'London, UK',
   description:
-    'Engineering Leader with 14+ years of experience delivering scalable, high-quality software. Specializing in Next.js, React, Node.js, and event-driven architecture.',
+    'Senior Software Engineering Manager with 14+ years of experience building and scaling web and cloud platforms. Specializing in Next.js, React, Node.js, TypeScript, AWS/GCP, event-driven architecture, and Generative AI.',
   about: {
     headline:
-      'Engineering Leader with a passion for building scalable, high-quality software that delivers exceptional customer experiences.',
+      'Engineering leader focused on building scalable products, high‑performing teams, and customer‑centric digital experiences.',
     contents: [
-      "My expertise encompasses event-driven architecture, microservices, and cloud-native applications. I'm passionate about coaching, mentoring, and pair programming, believing that collaborative teams deliver the best solutions.",
-      "Currently, I'm focused on rebuilding B2B Sales experiences and developing convergent platforms that enable seamless integration of diverse products and services.",
-      'I thrive in fast-paced environments, leveraging my technical acumen and leadership skills to drive innovation and deliver results. My goal is to create a culture of excellence, where teams are empowered to take ownership of their work and continuously improve.',
-      'I am committed to fostering a culture of collaboration, innovation, and continuous improvement. I believe that the best solutions come from diverse teams working together towards a common goal.',
+      "I’ve spent my career shipping large‑scale customer journeys and internal platforms across telecom, banking, consulting, and product engineering. My core strengths are modern web platforms (Next.js/React), backend services (Node/Java), and cloud-native delivery on AWS and GCP.",
+      "I’m passionate about performance, quality, and pragmatic architecture — from event‑driven systems and microservices to front‑end frameworks that scale across squads.",
+      'As a leader, I coach and mentor engineers, grow teams, and set technical strategy that balances innovation with reliable delivery.',
+      'I also advise teams on practical Generative AI adoption, including LLM‑powered product features, RAG architectures, and evaluation/guardrails.',
     ],
   },
   experiences: [
@@ -23,15 +23,15 @@ const data: PersonalData = {
       company: 'BT Group',
       period: 'Sept 2023 - Present',
       description:
-        "Rebuilt Sales/Renew experience for telco/techco products using a scalable tech stack (Next.js, React, Node.js, Java, AWS), achieving increased conversion and zero order loss. Worked with cross-functional teams for building recommendations for products and working on an LLM-based help bot. Overseeing the Sales Convergence Tribe (8 engineering squads), defining the technical strategy and roadmaps.",
+        "Engineering Lead for BT Business Broadband SMB Learn–Buy–Get acquisition and renewals journey. Architected a front‑end framework and CMS adapter pattern, rebuilt sales/renew experiences with Next.js/React/Node/Java on AWS, and delivered LLM‑powered help and recommendation features. Scaled a full‑stack team from 7 to 30+ across the UK and India while defining multi‑squad technical strategy.",
     },
     {
-      title: 'Software Engineering Manager',
-      location: 'Birmingham, UK',
+      title: 'Engineering Manager',
+      location: 'London, UK',
       company: 'BT Group',
       period: 'Apr 2022 - Aug 2023',
       description:
-        'Developed transaction journeys (e-commerce) on business.bt.com using Next.js, React, and TypeScript, improving page load times by 5x. Designed and led AWS migration, enhancing scalability and performance for cloud-based solutions. Hired and led a team of 7 engineers, introducing automated testing and CI/CD to reduce time-to-market.',
+        'Led development of all transaction journeys for business.bt.com from inception. Architected cloud migration to AWS, improving resilience and scalability, and introduced automated testing/CI‑CD to speed delivery. Managed and mentored a 7‑engineer team focused on performance and reliability.',
     },
     {
       title: 'Lead Software Engineer',
@@ -41,12 +41,12 @@ const data: PersonalData = {
       description: `Engineered a sophisticated digital platform catering to the investment banking sector, encompassing web and native applications. Streamlined integration among apps to facilitate the smooth transfer of large volumes of data. Mentored junior engineers, promoting knowledge-sharing and best practices. Contributed to architecture discussions, focusing on scalability and performance optimization.`,
     },
     {
-      title: 'Lead Software Engineer',
+      title: 'Lead Engineer',
       location: 'Gdansk, Poland',
       company: 'PwC',
       period: 'Mar 2020 - Feb 2021',
       description:
-        'Designed a KYC solution from scratch, scaling APIs to handle 6,000 requests per minute using Java and MongoDB. Led a team of 4 developers, implementing TDD and observability for robust performance.',
+        'Designed and built a KYC solution from scratch using TypeScript, React, Node.js, and MongoDB. Led a 4‑developer team, migrated data from SharePoint, and scaled APIs to handle ~6,000 TPM with strong test coverage and observability.',
     },
     {
       title: 'Senior Software Engineer',
@@ -54,7 +54,7 @@ const data: PersonalData = {
       company: 'EPAM Systems',
       period: 'Mar 2018 - Feb 2020',
       description:
-        'Built a web application for health insurance claim processing using JavaScript and React, increasing efficiency by 5%. Focused on performance optimization and scalability for high-availability systems.',
+        'Worked in a distributed US/Poland team on Cigna health‑insurance platforms. Built transaction and audit workflows using Angular, Java, Spring Boot, and reactive programming, with a focus on scalability and performance.',
     },
     {
       title: 'Senior Software Engineer',
@@ -87,20 +87,32 @@ const data: PersonalData = {
     'React',
     'Next.js',
     'Node.js',
+    'Electron',
     'AWS',
-    'Event-Driven Architecture',
+    'Google Cloud Platform (GCP)',
+    'MongoDB',
+    'Playwright',
+    'React Testing Library',
+    'Redux Toolkit',
+    'Event‑Driven Architecture',
     'Microservices',
-    'Agile',
+    'Kafka',
+    'Java',
+    'Spring Boot',
+    'Angular',
+    'Generative AI',
+    'Agile / Lean Delivery',
     'CI/CD',
     'TDD',
     'Observability',
     'Mentoring',
-    'Leadership',
+    'Engineering Leadership',
   ],
   education: [
     {
       degree: 'Bachelor of Technology in Computer Science',
       year: 2009,
+      institution: 'Rajasthan Technical University, Kota',
       location: 'India',
     },
   ],

@@ -2,44 +2,7 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-
-const faqs = [
-  {
-    question: 'Who is Shubhendu Vaid?',
-    answer:
-      'Shubhendu Vaid is a Senior Software Engineering Manager at BT Group in London, UK, with 14+ years of experience building scalable software solutions. He specializes in Next.js, React, Node.js, AWS, and event-driven architecture.',
-  },
-  {
-    question: "What is Shubhendu Vaid's current role and responsibilities?",
-    answer:
-      'Shubhendu currently serves as Senior Software Engineering Manager at BT Group, overseeing the Sales Convergence Tribe with 8 engineering squads. He defines technical strategy, rebuilds B2B sales experiences, and leads teams in developing convergent platforms for seamless product integration.',
-  },
-  {
-    question: 'What technologies does Shubhendu Vaid specialize in?',
-    answer:
-      'Shubhendu specializes in JavaScript, TypeScript, React, Next.js, Node.js, AWS, event-driven architecture, microservices, Java, and cloud-native applications. He has extensive experience with CI/CD, TDD, observability, and agile methodologies.',
-  },
-  {
-    question: "What are Shubhendu Vaid's key achievements at BT Group?",
-    answer:
-      'At BT Group, Shubhendu rebuilt sales/renew experiences achieving increased conversion and zero order loss, improved page load times by 5x using Next.js, led AWS migration for enhanced scalability, and developed LLM-based help bots and product recommendation systems.',
-  },
-  {
-    question: 'Where is Shubhendu Vaid located and available for work?',
-    answer:
-      'Shubhendu Vaid is based in London, UK, and is available for engineering leadership roles across the United Kingdom and Europe. He has experience working in London, Birmingham, Glasgow, and internationally in Poland and India.',
-  },
-  {
-    question: "What is Shubhendu Vaid's educational background?",
-    answer:
-      'Shubhendu holds a Bachelor of Technology in Computer Science (2009) and has 14+ years of progressive experience in software engineering, from individual contributor to senior leadership roles.',
-  },
-  {
-    question: 'How can I contact Shubhendu Vaid for opportunities?',
-    answer:
-      "You can contact Shubhendu Vaid via email at vaidshubhendu@gmail.com, connect on LinkedIn at linkedin.com/in/shubhendu-vaid, or view his work on GitHub at github.com/ShubhenduVaid. He's open to discussing engineering leadership, architecture, and new opportunities.",
-  },
-];
+import { faqs } from '@/data/faqs';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

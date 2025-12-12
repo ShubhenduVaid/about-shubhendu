@@ -49,7 +49,12 @@ export const metadata: Metadata = {
     'Shubhendu Vaid',
     'BT Group Engineering',
     'London Tech Leader',
-    'UK Software Engineer'
+    'UK Software Engineer',
+    'Engineering Leadership Coaching',
+    'Software Architecture Consulting London',
+    'Generative AI Consultant UK',
+    'CTO Advisory London',
+    'Engineering Manager Coach'
   ],
   authors: [{ name: 'Shubhendu Vaid', url: 'https://www.shubhenduvaid.com' }],
   creator: 'Shubhendu Vaid',
@@ -94,7 +99,7 @@ export const metadata: Metadata = {
     creator: '@shubhenduvaid',
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   category: 'Technology',
   classification: 'Professional Portfolio',

@@ -1,4 +1,5 @@
 import data from '@/data';
+import { faqs } from '@/data/faqs';
 
 export default function JsonLd() {
   const personJsonLd = {
@@ -110,7 +111,21 @@ export default function JsonLd() {
       'Technical Architecture Consulting',
       'Team Mentoring and Development',
       'Scalable Software Solutions',
+      'Generative AI Advisory',
     ],
+  };
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
   };
 
   return (
@@ -128,6 +143,10 @@ export default function JsonLd() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(professionalServiceJsonLd),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
     </>
   );

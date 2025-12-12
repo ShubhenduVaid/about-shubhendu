@@ -1,0 +1,32 @@
+# Shubhendu Vaid — Senior Software Engineering Manager & Engineering Leader
+
+Website: https://www.shubhenduvaid.com/
+
+## Bio
+Shubhendu Vaid is a London‑based engineering leader with 14+ years of experience building and scaling web and cloud platforms. He currently leads BT Business Broadband SMB acquisition and renewals journeys and has previously delivered platforms at JPMorgan Chase, PwC, EPAM Systems, and Bharti Airtel.
+
+## Expertise
+- Next.js, React, TypeScript, Node.js, Electron
+- AWS and Google Cloud Platform (GCP)
+- Event‑driven architecture, microservices, Kafka
+- Performance, reliability, and platform strategy
+- Generative AI / LLM product features and adoption
+- Engineering leadership, hiring, and team scaling
+
+## Advisory
+Shubhendu offers paid 1:1 advisory and consulting on engineering leadership coaching, architecture reviews, performance/platform strategy, and Generative AI adoption.
+
+## Key Pages
+- Home: https://www.shubhenduvaid.com/
+- About: https://www.shubhenduvaid.com/#section-about
+- Experience: https://www.shubhenduvaid.com/#section-experience
+- Articles: https://www.shubhenduvaid.com/#section-articles
+- Advisory: https://www.shubhenduvaid.com/#section-advisory
+- Contact: https://www.shubhenduvaid.com/#section-contact
+
+## Contact
+- Email: mailto:vaidshubhendu@gmail.com
+- LinkedIn: https://www.linkedin.com/in/shubhendu-vaid/
+- GitHub: https://github.com/ShubhenduVaid
+- Medium: https://medium.com/@vaidshubhendu
+

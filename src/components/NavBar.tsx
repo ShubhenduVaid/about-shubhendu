@@ -22,6 +22,7 @@ const NavBar = () => {
     { to: '#section-about', label: 'About Me' },
     { to: '#section-experience', label: 'Experience' },
     { to: '#section-articles', label: 'Latest Articles' },
+    { to: '#section-advisory', label: 'Advisory' },
     { to: '#section-contact', label: 'Get In Touch' },
   ];
 
@@ -101,7 +102,7 @@ const NavBar = () => {
           ) : (
             <>
               <a
-                href="https://www.hatchcv.com/shared-resume/0d8f0731-ece2-4509-ac30-c12127aeba7e"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"

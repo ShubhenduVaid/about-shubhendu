@@ -3,16 +3,16 @@
  */
 export const ROUTES = {
   HOME: '/',
-  ABOUT: '#about',
-  EXPERIENCE: '#experience',
-  BLOG: '#blog',
-  CONTACT: '#contact',
+  ABOUT: '#section-about',
+  EXPERIENCE: '#section-experience',
+  BLOG: '#section-articles',
+  CONTACT: '#section-contact',
 } as const;
 
 export const EXTERNAL_LINKS = {
-  GITHUB: 'https://github.com/shubhenduvaid',
-  LINKEDIN: 'https://linkedin.com/in/shubhenduvaid',
-  EMAIL: 'mailto:hello@shubhenduvaid.com',
+  GITHUB: 'https://github.com/ShubhenduVaid',
+  LINKEDIN: 'https://linkedin.com/in/shubhendu-vaid',
+  EMAIL: 'mailto:vaidshubhendu@gmail.com',
 } as const;
 
 export const PERFORMANCE_THRESHOLDS = {
