@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import AboutSection from '@/components/AboutSection';
 import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
