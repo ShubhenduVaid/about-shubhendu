@@ -8,7 +8,7 @@ const blogPosts = [
   {
     title: 'Orchestrating Multiple AI Tools: Building Consensus CLI',
     excerpt:
-      'Exploring how to orchestrate multiple AI tools effectively and building consensus-driven command line interfaces. A deep dive into practical AI implementation strategies for modern development workflows.',
+      'Exploring how to orchestrate multiple AI tools effectively and building consensus-driven command line interfaces.',
     date: 'Sep 13, 2025',
     readTime: '3 min read',
     category: 'AI & Innovation',
@@ -19,7 +19,7 @@ const blogPosts = [
   {
     title: 'Efficiently retrieving data from 1 billion records',
     excerpt:
-      'Retrieving large-scale datasets efficiently is key to maintaining competitive, high-performing applications. For many developers and engineers, the challenge isn&apos;t just in storing massive amounts of data but in ensuring that data retrieval remains quick and reliable, even as datasets grow to millions or billions of records.',
+      "Retrieving large-scale datasets efficiently is key to maintaining competitive, high-performing applications. For many developers and engineers, the challenge isn't just in storing massive amounts of data but in ensuring that data retrieval remains quick and reliable, even as datasets grow to millions or billions of records.",
     date: 'Nov 10, 2024',
     readTime: '10 min read',
     category: 'Backend Engineering',

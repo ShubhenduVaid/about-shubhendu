@@ -21,14 +21,18 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section
+      id="section-contact"
+      className="py-20 bg-gradient-to-br from-gray-50 to-gray-100"
+    >
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
             Get In Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Interested in working together or have questions? Feel free to reach out.
+            Interested in working together or have questions? Feel free to reach
+            out.
           </p>
         </div>
 
@@ -39,8 +43,10 @@ const ContactSection = () => {
                 Let&apos;s Connect
               </h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                I&apos;m always open to discuss engineering, leadership, architecture, or new opportunities. 
-                Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
+                I&apos;m always open to discuss engineering, leadership,
+                architecture, or new opportunities. Whether you have a question
+                or just want to say hi, I&apos;ll try my best to get back to
+                you!
               </p>
               <SocialLinks
                 email={contact.email}

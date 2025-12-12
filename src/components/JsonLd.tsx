@@ -13,7 +13,7 @@ export default function JsonLd() {
     sameAs: [
       data.contact.linkedin,
       data.contact.github,
-      'https://medium.com/@vaidshubhendu'
+      'https://medium.com/@vaidshubhendu',
     ],
     worksFor: {
       '@type': 'Organization',
@@ -24,18 +24,18 @@ export default function JsonLd() {
         '@type': 'PostalAddress',
         addressLocality: 'London',
         addressRegion: 'England',
-        addressCountry: 'GB'
-      }
+        addressCountry: 'GB',
+      },
     },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'London',
       addressRegion: 'England',
-      addressCountry: 'GB'
+      addressCountry: 'GB',
     },
     alumniOf: {
       '@type': 'EducationalOrganization',
-      name: 'Bachelor of Technology in Computer Science'
+      name: 'Bachelor of Technology in Computer Science',
     },
     knowsAbout: [
       'JavaScript',
@@ -46,7 +46,7 @@ export default function JsonLd() {
       'AWS',
       'Event-Driven Architecture',
       'Microservices',
-      'Software Engineering Leadership'
+      'Software Engineering Leadership',
     ],
     hasOccupation: {
       '@type': 'Occupation',
@@ -56,15 +56,15 @@ export default function JsonLd() {
         name: 'London',
         containedInPlace: {
           '@type': 'Country',
-          name: 'United Kingdom'
-        }
+          name: 'United Kingdom',
+        },
       },
       estimatedSalary: {
         '@type': 'MonetaryAmountDistribution',
         name: 'Senior Engineering Manager Salary',
-        currency: 'GBP'
-      }
-    }
+        currency: 'GBP',
+      },
+    },
   };
 
   const websiteJsonLd = {
@@ -73,15 +73,16 @@ export default function JsonLd() {
     '@id': 'https://www.shubhenduvaid.com/#website',
     url: 'https://www.shubhenduvaid.com',
     name: 'Shubhendu Vaid - Engineering Leader',
-    description: 'Professional portfolio of Shubhendu Vaid, Senior Engineering Leader in London, UK',
+    description:
+      'Professional portfolio of Shubhendu Vaid, Senior Engineering Leader in London, UK',
     author: {
-      '@id': 'https://www.shubhenduvaid.com/#person'
+      '@id': 'https://www.shubhenduvaid.com/#person',
     },
     inLanguage: 'en-GB',
     copyrightYear: new Date().getFullYear(),
     copyrightHolder: {
-      '@id': 'https://www.shubhenduvaid.com/#person'
-    }
+      '@id': 'https://www.shubhenduvaid.com/#person',
+    },
   };
 
   const professionalServiceJsonLd = {
@@ -89,26 +90,27 @@ export default function JsonLd() {
     '@type': 'ProfessionalService',
     '@id': 'https://www.shubhenduvaid.com/#service',
     name: 'Software Engineering Leadership Services',
-    description: 'Expert software engineering leadership, architecture consulting, and technical mentoring services',
+    description:
+      'Expert software engineering leadership, architecture consulting, and technical mentoring services',
     provider: {
-      '@id': 'https://www.shubhenduvaid.com/#person'
+      '@id': 'https://www.shubhenduvaid.com/#person',
     },
     areaServed: [
       {
         '@type': 'Country',
-        name: 'United Kingdom'
+        name: 'United Kingdom',
       },
       {
-        '@type': 'Country', 
-        name: 'Europe'
-      }
+        '@type': 'Country',
+        name: 'Europe',
+      },
     ],
     serviceType: [
       'Software Engineering Leadership',
       'Technical Architecture Consulting',
       'Team Mentoring and Development',
-      'Scalable Software Solutions'
-    ]
+      'Scalable Software Solutions',
+    ],
   };
 
   return (
@@ -123,7 +125,9 @@ export default function JsonLd() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(professionalServiceJsonLd),
+        }}
       />
     </>
   );
