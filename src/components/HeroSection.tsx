@@ -56,7 +56,7 @@ const HeroSection = () => {
                 </Button>
               </a>
               <a
-                href={'#articles'}
+                href="#section-articles"
                 rel="noopener noreferrer"
                 className="inline-block"
                 aria-label="Read my blog articles"

@@ -31,8 +31,8 @@ const ContactSection = () => {
             Get In Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Interested in working together or have questions? Feel free to reach
-            out.
+            Interested in paid advisory, architecture reviews, leadership
+            coaching, or a role on your team? Feel free to reach out.
           </p>
         </div>
 
@@ -44,9 +44,9 @@ const ContactSection = () => {
               </h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 I&apos;m always open to discuss engineering, leadership,
-                architecture, or new opportunities. Whether you have a question
-                or just want to say hi, I&apos;ll try my best to get back to
-                you!
+                architecture, Generative AI, or new opportunities. Whether you
+                want to book an advisory session, explore a role, or just say
+                hi, I&apos;ll try my best to get back to you.
               </p>
               <SocialLinks
                 email={contact.email}
