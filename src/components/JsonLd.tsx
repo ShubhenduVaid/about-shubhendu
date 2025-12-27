@@ -1,21 +1,27 @@
-import data from '@/data';
+import data, { articles, caseStudies } from '@/data';
 import { faqs } from '@/data/faqs';
+import { config } from '@/lib/config';
 
 export default function JsonLd() {
+  const baseUrl = config.app.url;
+  const personId = `${baseUrl}/#person`;
+  const websiteId = `${baseUrl}/#website`;
+  const serviceId = `${baseUrl}/#service`;
+  const primaryEducation = data.education[0];
+  const sameAs = data.socials.map((social) => social.url);
+
   const personJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': 'https://www.shubhenduvaid.com/#person',
+    '@id': personId,
     name: data.name,
     jobTitle: data.title,
     description: data.description,
-    url: 'https://www.shubhenduvaid.com',
-    image: 'https://www.shubhenduvaid.com/opengraph-image.jpg',
-    sameAs: [
-      data.contact.linkedin,
-      data.contact.github,
-      'https://medium.com/@vaidshubhendu',
-    ],
+    url: baseUrl,
+    image: `${baseUrl}/opengraph-image.jpg`,
+    email: data.contact.email,
+    ...(data.contact.phone ? { telephone: data.contact.phone } : {}),
+    sameAs,
     worksFor: {
       '@type': 'Organization',
       '@id': 'https://www.bt.com/#organization',
@@ -34,21 +40,17 @@ export default function JsonLd() {
       addressRegion: 'England',
       addressCountry: 'GB',
     },
-    alumniOf: {
-      '@type': 'EducationalOrganization',
-      name: 'Bachelor of Technology in Computer Science',
-    },
-    knowsAbout: [
-      'JavaScript',
-      'TypeScript',
-      'React',
-      'Next.js',
-      'Node.js',
-      'AWS',
-      'Event-Driven Architecture',
-      'Microservices',
-      'Software Engineering Leadership',
-    ],
+    alumniOf: primaryEducation
+      ? {
+          '@type': 'CollegeOrUniversity',
+          name: primaryEducation.institution ?? primaryEducation.degree,
+          address: {
+            '@type': 'PostalAddress',
+            addressCountry: primaryEducation.location,
+          },
+        }
+      : undefined,
+    knowsAbout: data.skills,
     hasOccupation: {
       '@type': 'Occupation',
       name: 'Senior Software Engineering Manager',
@@ -71,30 +73,42 @@ export default function JsonLd() {
   const websiteJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://www.shubhenduvaid.com/#website',
-    url: 'https://www.shubhenduvaid.com',
+    '@id': websiteId,
+    url: baseUrl,
     name: 'Shubhendu Vaid - Engineering Leader',
     description:
       'Professional portfolio of Shubhendu Vaid, Senior Engineering Leader in London, UK',
     author: {
-      '@id': 'https://www.shubhenduvaid.com/#person',
+      '@id': personId,
     },
     inLanguage: 'en-GB',
     copyrightYear: new Date().getFullYear(),
     copyrightHolder: {
-      '@id': 'https://www.shubhenduvaid.com/#person',
+      '@id': personId,
     },
+  };
+
+  const profilePageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': `${baseUrl}/#profile`,
+    name: `${data.name} - ${data.title}`,
+    description: data.description,
+    mainEntity: {
+      '@id': personId,
+    },
+    inLanguage: 'en-GB',
   };
 
   const professionalServiceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': 'https://www.shubhenduvaid.com/#service',
+    '@id': serviceId,
     name: 'Software Engineering Leadership Services',
     description:
       'Expert software engineering leadership, architecture consulting, and technical mentoring services',
     provider: {
-      '@id': 'https://www.shubhenduvaid.com/#person',
+      '@id': personId,
     },
     areaServed: [
       {
@@ -113,6 +127,14 @@ export default function JsonLd() {
       'Scalable Software Solutions',
       'Generative AI Advisory',
     ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: data.contact.email,
+      ...(data.contact.phone ? { telephone: data.contact.phone } : {}),
+      contactType: 'inquiries',
+      areaServed: 'GB',
+      availableLanguage: ['en'],
+    },
   };
 
   const faqJsonLd = {
@@ -128,6 +150,29 @@ export default function JsonLd() {
     })),
   };
 
+  const articleListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: article.link,
+      name: article.title,
+    })),
+  };
+
+  const caseStudyListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Case Studies',
+    itemListElement: caseStudies.map((study, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${baseUrl}/case-studies#${study.slug}`,
+      name: study.title,
+    })),
+  };
+
   return (
     <>
       <script
@@ -140,6 +185,10 @@ export default function JsonLd() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(professionalServiceJsonLd),
         }}
@@ -147,6 +196,14 @@ export default function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleListJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyListJsonLd) }}
       />
     </>
   );

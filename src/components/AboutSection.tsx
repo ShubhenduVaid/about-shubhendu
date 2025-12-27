@@ -1,7 +1,6 @@
-import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Code, Server, Database, ArrowRight } from 'lucide-react';
-import data from '../data';
+import data from '@/data';
 
 const AboutSection = () => {
   const { about } = data;
@@ -15,9 +14,9 @@ const AboutSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6 hidden lg:block">
-              {about?.contents.map((item, index) => (
-                <div key={index} className="text-left">
+            <div className="space-y-4 md:space-y-6">
+              {about?.contents.map((item) => (
+                <div key={item} className="text-left">
                   <p className="text-gray-600">{item}</p>
                 </div>
               ))}

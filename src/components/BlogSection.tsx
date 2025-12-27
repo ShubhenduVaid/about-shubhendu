@@ -1,77 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
-
-const blogPosts = [
-  {
-    title: 'Orchestrating Multiple AI Tools: Building Consensus CLI',
-    excerpt:
-      'Exploring how to orchestrate multiple AI tools effectively and building consensus-driven command line interfaces.',
-    date: 'Sep 13, 2025',
-    readTime: '3 min read',
-    category: 'AI & Innovation',
-    link: 'https://www.linkedin.com/pulse/orchestrating-multiple-ai-tools-building-consensus-cli-shubhendu-vaid-5m9te/',
-    image:
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80',
-  },
-  {
-    title: 'Efficiently retrieving data from 1 billion records',
-    excerpt:
-      "Retrieving large-scale datasets efficiently is key to maintaining competitive, high-performing applications. For many developers and engineers, the challenge isn't just in storing massive amounts of data but in ensuring that data retrieval remains quick and reliable, even as datasets grow to millions or billions of records.",
-    date: 'Nov 10, 2024',
-    readTime: '10 min read',
-    category: 'Backend Engineering',
-    link: 'https://www.linkedin.com/pulse/efficiently-retrieving-data-from-1-billion-records-shubhendu-vaid-bo7we/',
-    image:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80',
-  },
-  {
-    title: 'Innovation with Practicality in Engineering Leadership',
-    excerpt:
-      'Balancing innovation with practical implementation is crucial for engineering leaders. Learn how to foster creativity while maintaining delivery excellence and team productivity.',
-    date: 'Jul 6, 2024',
-    readTime: '4 min read',
-    category: 'Engineering Leadership',
-    link: 'https://www.linkedin.com/pulse/innovation-practicality-why-engineering-leads-need-minded-vaid-qleze/',
-    image:
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80',
-  },
-  {
-    title: 'Engineering Management and Leadership Styles',
-    excerpt:
-      'Understanding different leadership styles in engineering management and how to adapt your approach based on team dynamics, project requirements, and organizational culture.',
-    date: 'Apr 21, 2024',
-    readTime: '5 min read',
-    category: 'Engineering Management',
-    link: 'https://www.linkedin.com/pulse/from-engineer-engineering-manager-shubhendu-vaid-cvk9e/',
-    image:
-      'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80',
-  },
-  {
-    title: 'Node.js Microservices with DynamoDB',
-    excerpt:
-      'Building scalable microservices using Node.js and DynamoDB. Explore patterns for data modeling, performance optimization, and maintaining consistency in distributed systems.',
-    date: 'Apr 3, 2024',
-    readTime: '6 min read',
-    category: 'Microservices',
-    link: 'https://www.linkedin.com/pulse/how-create-nodejs-microservice-persisting-data-dynamodb-vaid-dscke/',
-    image:
-      'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80',
-  },
-  {
-    title: 'Leveraging Adapter Design Pattern for Seamless CMS Integrations',
-    excerpt:
-      'In the ever-evolving landscape of content management systems (CMS), creating robust integrations with various platforms can be a challenging yet crucial task. I am excited to share our successful journey in implementing the Adapter Design Pattern to streamline and enhance our CMS integrations.',
-    date: 'Feb 20, 2024',
-    readTime: '2 min read',
-    category: 'Architecture',
-    link: 'https://medium.com/@vaidshubhendu/leveraging-adapter-design-pattern-for-seamless-cms-integrations-15b8544f4bed',
-    image:
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80',
-  },
-];
+import { articles } from '@/data';
 
 const BlogSection = () => {
   return (
@@ -89,10 +20,12 @@ const BlogSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {blogPosts.map((post, index) => (
+            {articles.map((post) => (
               <Card
-                key={index}
+                key={post.title}
                 className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden"
+                itemScope
+                itemType="https://schema.org/BlogPosting"
               >
                 <div className="relative overflow-hidden">
                   <Image
@@ -100,6 +33,7 @@ const BlogSection = () => {
                     alt={post.title}
                     width={400}
                     height={240}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -118,15 +52,24 @@ const BlogSection = () => {
                   <div className="flex items-center gap-3 text-sm text-gray-500 mb-4">
                     <div className="flex items-center gap-1">
                       <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                      <span className="font-medium">{post.date}</span>
+                      <time
+                        className="font-medium"
+                        itemProp="datePublished"
+                        dateTime={post.dateIso}
+                      >
+                        {post.date}
+                      </time>
                     </div>
                     <span>•</span>
                     <span>{post.readTime}</span>
                   </div>
                   <h3 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
-                    {post.title}
+                    <span itemProp="headline">{post.title}</span>
                   </h3>
-                  <p className="text-gray-600 line-clamp-3 leading-relaxed">
+                  <p
+                    className="text-gray-600 line-clamp-3 leading-relaxed"
+                    itemProp="description"
+                  >
                     {post.excerpt}
                   </p>
                 </CardContent>
@@ -141,6 +84,7 @@ const BlogSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
+                      itemProp="url"
                     >
                       Read Article
                       <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />

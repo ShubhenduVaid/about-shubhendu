@@ -1,10 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowRight, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import {
+  type ContactFormData,
+  type ContactFormErrors,
+  validateContactForm,
+} from '@/lib/validation';
 
 interface ContactFormProps {
   onSubmit?: (data: { name: string; email: string; message: string }) => void;
@@ -12,29 +17,22 @@ interface ContactFormProps {
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
-const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({
+const ContactForm = ({ onSubmit }: ContactFormProps) => {
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     message: '',
   });
   const [status, setStatus] = useState<FormStatus>('idle');
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<ContactFormErrors>({});
 
   const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-    
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Invalid email format';
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
-    else if (formData.message.length < 10) newErrors.message = 'Message must be at least 10 characters';
-
+    const newErrors = validateContactForm(formData);
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) return;
@@ -62,53 +60,111 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
+    const field = name as keyof ContactFormData;
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: '' }));
+    }
   };
 
   return (
     <div className="space-y-6">
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form
+        onSubmit={handleSubmit}
+        action="https://formspree.io/f/xeolwjpn"
+        method="POST"
+        className="space-y-6"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
+            <label
+              htmlFor="contact-name"
+              className="text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
             <Input
+              id="contact-name"
               name="name"
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
+              autoComplete="name"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? 'contact-name-error' : undefined}
               className={errors.name ? 'border-red-500 focus:border-red-500' : ''}
               disabled={status === 'loading'}
             />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+            {errors.name && (
+              <p
+                id="contact-name-error"
+                className="text-red-500 text-sm mt-1"
+              >
+                {errors.name}
+              </p>
+            )}
           </div>
           <div>
+            <label
+              htmlFor="contact-email"
+              className="text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
             <Input
+              id="contact-email"
               name="email"
               type="email"
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="email"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'contact-email-error' : undefined}
               className={errors.email ? 'border-red-500 focus:border-red-500' : ''}
               disabled={status === 'loading'}
             />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+            {errors.email && (
+              <p
+                id="contact-email-error"
+                className="text-red-500 text-sm mt-1"
+              >
+                {errors.email}
+              </p>
+            )}
           </div>
         </div>
         <div>
+          <label
+            htmlFor="contact-message"
+            className="text-sm font-medium text-gray-700"
+          >
+            Message
+          </label>
           <Textarea
+            id="contact-message"
             name="message"
             placeholder="Your Message"
             rows={5}
             value={formData.message}
             onChange={handleChange}
+            aria-invalid={!!errors.message}
+            aria-describedby={
+              errors.message ? 'contact-message-error' : undefined
+            }
             className={errors.message ? 'border-red-500 focus:border-red-500' : ''}
             disabled={status === 'loading'}
           />
-          {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+          {errors.message && (
+            <p
+              id="contact-message-error"
+              className="text-red-500 text-sm mt-1"
+            >
+              {errors.message}
+            </p>
+          )}
         </div>
         
         <Button 
@@ -131,14 +187,22 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       </form>
 
       {status === 'success' && (
-        <div className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
+        <div
+          role="status"
+          aria-live="polite"
+          className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800"
+        >
           <CheckCircle className="h-5 w-5" />
           <span>Message sent successfully! I&apos;ll get back to you soon.</span>
         </div>
       )}
 
       {status === 'error' && (
-        <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+        <div
+          role="status"
+          aria-live="polite"
+          className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800"
+        >
           <AlertCircle className="h-5 w-5" />
           <span>Failed to send message. Please try again.</span>
         </div>
