@@ -1,34 +1,7 @@
-import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle } from 'lucide-react';
-
-const services = [
-  {
-    title: 'Engineering Leadership Coaching',
-    items: [
-      'Transitioning from IC to manager/leader',
-      'Team scaling, hiring, and performance culture',
-      'Delivery excellence and stakeholder management',
-    ],
-  },
-  {
-    title: 'Architecture & Platform Reviews',
-    items: [
-      'Next.js/React and Node.js system design',
-      'Event‑driven and microservices architecture',
-      'Performance, reliability, and cloud cost tuning',
-    ],
-  },
-  {
-    title: 'Generative AI Advisory',
-    items: [
-      'LLM/RAG solution design and evaluation',
-      'Practical AI adoption for product teams',
-      'Guardrails, quality, and responsible AI',
-    ],
-  },
-];
+import { advisoryServices } from '@/data';
 
 const AdvisorySection = () => {
   return (
@@ -49,7 +22,7 @@ const AdvisorySection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map((service) => (
+          {advisoryServices.map((service) => (
             <Card key={service.title} className="card-hover">
               <CardContent className="p-6 space-y-4">
                 <h3 className="text-xl font-semibold">{service.title}</h3>
@@ -81,4 +54,3 @@ const AdvisorySection = () => {
 };
 
 export default AdvisorySection;
-

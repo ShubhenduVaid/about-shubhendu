@@ -1,23 +1,31 @@
-import React from 'react';
 import { Linkedin, Github, Mail } from 'lucide-react';
 import Link from 'next/link';
+import data, { footerLinks } from '@/data';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { contact, name, about } = data;
+
+  const resolveHref = (href: string) => {
+    if (href.startsWith('#')) {
+      return `/${href}`;
+    }
+
+    return href;
+  };
 
   return (
     <footer className="bg-blue-950 text-white py-12">
       <div className="container text-center md:text-left justify-center md:justify-left">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center md:text-left justify-center md:justify-left">
-            <h3 className="text-lg font-bold mb-4">Shubhendu Vaid</h3>
+            <h3 className="text-lg font-bold mb-4">{name}</h3>
             <p className="text-gray-300 mb-4">
-              Engineering Leader specializing in event-driven architecture and
-              distributed systems
+              {about.headline}
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
               <a
-                href="https://www.linkedin.com/in/shubhendu-vaid/"
+                href={contact.linkedin}
                 target="_blank"
                 aria-label="LinkedIn"
                 className="hover:text-primary transition-colors"
@@ -25,7 +33,7 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://github.com/ShubhenduVaid"
+                href={contact.github}
                 target="_blank"
                 aria-label="GitHub"
                 className="hover:text-primary transition-colors"
@@ -33,7 +41,7 @@ const Footer = () => {
                 <Github size={20} />
               </a>
               <a
-                href="mailto:vaidshubhendu@gmail.com"
+                href={`mailto:${contact.email}`}
                 target="_blank"
                 aria-label="Email"
                 className="hover:text-primary transition-colors"
@@ -46,30 +54,16 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/#section-about"
-                  className="text-gray-300 hover:text-primary transition-colors"
-                >
-                  About Me
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#section-experience"
-                  className="text-gray-300 hover:text-primary transition-colors"
-                >
-                  Experience
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#section-articles"
-                  className="text-gray-300 hover:text-primary transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
+              {footerLinks.map((link) => (
+                <li key={link.id}>
+                  <Link
+                    href={resolveHref(link.href)}
+                    className="text-gray-300 hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -81,21 +75,23 @@ const Footer = () => {
             <p className="text-gray-300 mb-2">
               <a
                 title="Email Shubhendu Vaid"
-                href="mailto:vaidshubhendu@gmail.com"
+                href={`mailto:${contact.email}`}
                 className="hover:text-primary transition-colors"
               >
-                vaidshubhendu@gmail.com
+                {contact.email}
               </a>
             </p>
-            <p className="text-gray-300">
-              <a
-                title="Call Shubhendu Vaid"
-                href="tel:+447835735172"
-                className="hover:text-primary transition-colors"
-              >
-                +44 7835 735172
-              </a>
-            </p>
+            {contact.phone ? (
+              <p className="text-gray-300">
+                <a
+                  title="Call Shubhendu Vaid"
+                  href={`tel:${contact.phone}`}
+                  className="hover:text-primary transition-colors"
+                >
+                  {contact.phone}
+                </a>
+              </p>
+            ) : null}
           </div>
         </div>
 

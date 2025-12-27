@@ -30,11 +30,45 @@ export interface Project {
   github?: string;
 }
 
-export interface Blog {
-  title: string;
+export interface NavLink {
+  id: string;
+  label: string;
+  href: string;
+}
+
+export type StatIcon = 'award' | 'users' | 'code' | 'map-pin';
+
+export interface StatItem {
+  icon: StatIcon;
+  value: string;
+  label: string;
   description: string;
-  link: string;
+}
+
+export type Achievement = string;
+
+export interface AdvisoryService {
+  title: string;
+  items: string[];
+}
+
+export interface Article {
+  title: string;
+  excerpt: string;
   date: string;
+  dateIso: string;
+  readTime: string;
+  category: string;
+  link: string;
+  image: string;
+}
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  client: string;
+  period: string;
+  summary: string;
 }
 
 export interface Education {
@@ -60,7 +94,6 @@ export interface PersonalData {
   skills: string[];
   education: Education[];
   projects: Project[];
-  blogs?: Blog[];
   contact: Contact;
   socials: Social[];
 }

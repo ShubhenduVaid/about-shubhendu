@@ -1,4 +1,3 @@
-import React from 'react';
 import { siGithub } from 'simple-icons';
 import { Button } from '@/components/ui/button';
 import { Mail, Linkedin } from 'lucide-react';
@@ -22,11 +21,7 @@ interface SocialLinksProps {
   linkedin: string;
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({
-  email,
-  github,
-  linkedin,
-}) => {
+const SocialLinks = ({ email, github, linkedin }: SocialLinksProps) => {
   return (
     <div className="flex flex-wrap gap-4">
       <Button 

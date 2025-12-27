@@ -1,6 +1,6 @@
-import { PersonalData } from '@/types';
+import type { PersonalData } from '@/types';
 
-const data: PersonalData = {
+const data = {
   name: 'Shubhendu Vaid',
   title: 'Senior Software Engineering Manager & Engineering Leader',
   location: 'London, UK',
@@ -167,6 +167,15 @@ const data: PersonalData = {
       url: 'https://medium.com/@vaidshubhendu',
     },
   ],
-};
+} satisfies PersonalData;
 
 export default data;
+export {
+  achievements,
+  advisoryServices,
+  articles,
+  footerLinks,
+  navLinks,
+  stats,
+} from './sections';
+export { caseStudies } from './case-studies';

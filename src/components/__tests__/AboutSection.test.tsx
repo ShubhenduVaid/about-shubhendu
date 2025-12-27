@@ -1,20 +1,17 @@
 import { render, screen } from '@testing-library/react';
 import AboutSection from '../AboutSection';
+import data from '@/data';
 
 describe('AboutSection', () => {
   it('renders the about section with headline', () => {
     render(<AboutSection />);
 
-    expect(
-      screen.getByText(/Engineering Leader with a passion/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText(data.about.headline)).toBeInTheDocument();
   });
 
   it('renders about content paragraphs', () => {
     render(<AboutSection />);
 
-    expect(
-      screen.getByText(/My expertise encompasses event-driven architecture/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText(data.about.contents[0])).toBeInTheDocument();
   });
 });
