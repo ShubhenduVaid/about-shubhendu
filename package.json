@@ -29,6 +29,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@mdx-js/loader": "^3.1.0",
+    "@next/mdx": "^15.5.9",
     "@tailwindcss/postcss": "^4.1.7",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",

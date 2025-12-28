@@ -1,7 +1,6 @@
-import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import data from '../data';
+import data from '@/data';
 
 /**
  * HeroSection component displays the main landing section with personal information,
@@ -10,7 +9,7 @@ import data from '../data';
  * @returns {JSX.Element} The hero section component
  */
 const HeroSection = () => {
-  const { name, title, description, projects, contact } = data;
+  const { name, title, description, projects, contact, location } = data;
   return (
     <section
       id="hero"
@@ -32,6 +31,9 @@ const HeroSection = () => {
               >
                 {title}
               </h2>
+              <p className="text-sm md:text-base text-gray-500 font-medium">
+                {location}
+              </p>
               <p
                 className="text-lg md:text-xl text-gray-600 max-w-xl"
                 itemProp="description"
@@ -45,27 +47,28 @@ const HeroSection = () => {
               aria-label="Main actions"
             >
               <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+                aria-label="Download my resume"
+              >
+                <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
+                  Download resume
+                </Button>
+              </a>
+              <a
                 href={contact?.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
                 aria-label="View my work on GitHub"
               >
-                <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
-                  View my work
-                </Button>
-              </a>
-              <a
-                href="#section-articles"
-                rel="noopener noreferrer"
-                className="inline-block"
-                aria-label="Read my blog articles"
-              >
                 <Button
                   variant="outline"
                   className="border-1 border-gray-800 hover:bg-gray-200"
                 >
-                  Read my blog
+                  View my work
                 </Button>
               </a>
             </nav>
@@ -89,16 +92,25 @@ const HeroSection = () => {
                   Latest Projects
                 </h3>
                 <div className="space-y-4">
-                  {projects?.map((project, index) => (
-                    <article key={index} className="flex items-start gap-2">
+                  {projects?.map((project) => (
+                    <article
+                      key={project.name}
+                      className="flex items-start gap-2"
+                    >
                       <div
                         className="bg-blue-100 p-1 rounded mt-1"
                         aria-hidden="true"
                       >
                         <ArrowRight size={14} className="text-blue-700" />
                       </div>
-                      <p className="flex items-end text-sm">
-                        {project.description}
+                      <p className="flex items-end text-sm text-gray-700">
+                        <span className="font-semibold text-navy-900">
+                          {project.name}
+                        </span>
+                        <span className="text-gray-600">
+                          {' '}
+                          — {project.description}
+                        </span>
                       </p>
                     </article>
                   ))}

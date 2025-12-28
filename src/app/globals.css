@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @tailwind base;
@@ -76,7 +75,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: Inter, sans-serif;
+    font-family: var(--font-geist-sans), sans-serif;
   }
 
   h1,
@@ -85,9 +84,16 @@
   h4,
   h5,
   h6 {
-    font-family: Manrope, sans-serif;
+    font-family: var(--font-geist-sans), sans-serif;
     font-weight: 700;
     letter-spacing: -0.025em;
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-geist-mono), monospace;
   }
 
   .section {
@@ -137,54 +143,96 @@
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
     transform: translateY(-0.25rem);
   }
-}
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  .mdx {
+    color: #374151;
+    font-size: 1.05rem;
+    line-height: 1.8;
   }
-  to {
-    transform: rotate(360deg);
+
+  .mdx h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .mdx h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111827;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .mdx p {
+    margin-top: 1rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  .mdx ul,
+  .mdx ol {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    list-style-position: outside;
+  }
+
+  .mdx li {
+    display: list-item;
+    margin-top: 0.5rem;
+  }
+
+  .mdx ul {
+    list-style: disc;
+  }
+
+  .mdx ol {
+    list-style: decimal;
+  }
+
+  .mdx li::marker {
+    color: #2563eb;
+    font-weight: 600;
+  }
+
+  .mdx strong {
+    color: #111827;
+  }
+
+  .mdx a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  .mdx :not(pre) > code {
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.25rem;
+    background: #f3f4f6;
+    font-size: 0.95em;
+  }
+
+  .mdx pre {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    background: #0f172a;
+    color: #e2e8f0;
+  }
+
+  .mdx pre code {
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 0.95em;
+  }
 }
 
 #section-about,
 #section-experience,
 #section-articles,
+#section-advisory,
+#faq,
 #section-contact {
   scroll-margin-top: 70px;
 }

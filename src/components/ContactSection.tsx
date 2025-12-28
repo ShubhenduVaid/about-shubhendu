@@ -1,24 +1,13 @@
-'use client';
-
-import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import ContactForm from './ContactForm';
 import SocialLinks from './SocialLinks';
-import data from '../data';
+import data from '@/data';
 
 /**
  * ContactSection component displays contact information and form
  */
 const ContactSection = () => {
   const { contact } = data;
-
-  const handleFormSubmit = (formData: {
-    name: string;
-    email: string;
-    message: string;
-  }) => {
-    console.log('Form submitted:', formData);
-  };
 
   return (
     <section
@@ -58,7 +47,7 @@ const ContactSection = () => {
 
           <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
             <CardContent className="p-8">
-              <ContactForm onSubmit={handleFormSubmit} />
+              <ContactForm />
             </CardContent>
           </Card>
         </div>

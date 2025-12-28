@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,20 +10,17 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
+import { navLinks } from '@/data';
 
 const NavBar = () => {
-  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const resolveHref = (href: string) => {
+    if (href.startsWith('#')) {
+      return `/${href}`;
+    }
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const navLinks = [
-    { to: '#section-about', label: 'About Me' },
-    { to: '#section-experience', label: 'Experience' },
-    { to: '#section-articles', label: 'Latest Articles' },
-    { to: '#section-advisory', label: 'Advisory' },
-    { to: '#section-contact', label: 'Get In Touch' },
-  ];
+    return href;
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur bg-background/90 border-b">
@@ -41,8 +37,8 @@ const NavBar = () => {
           <nav className="hidden md:flex ml-6 space-x-6">
             {navLinks.map((link) => (
               <Link
-                key={link.to}
-                href={link.to}
+                key={link.id}
+                href={resolveHref(link.href)}
                 className="text-sm font-medium text-black hover:text-blue-600 transition-colors"
               >
                 {link.label}
@@ -53,15 +49,10 @@ const NavBar = () => {
 
         <div className="flex items-center space-x-4">
           {/* Mobile Menu Toggle */}
-          {isMobile ? (
+          <div className="md:hidden">
             <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="md:hidden"
-                  onClick={toggleMenu}
-                >
+                <Button variant="ghost" size="icon">
                   {isMenuOpen ? (
                     <X className="h-5 w-5" />
                   ) : (
@@ -71,16 +62,16 @@ const NavBar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
-                className="w-[200px] mt-2 bg-white/95 backdrop-blur-sm"
+                className="w-[220px] mt-2 bg-white/95 backdrop-blur-sm"
               >
                 {navLinks.map((link) => (
                   <DropdownMenuItem
-                    key={link.to}
+                    key={link.id}
                     asChild
                     className="focus:bg-gray-100"
                   >
                     <Link
-                      href={link.to}
+                      href={resolveHref(link.href)}
                       className="w-full text-sm py-2 px-3"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -99,20 +90,19 @@ const NavBar = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          ) : (
-            <>
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
-                  Get Resume
-                </Button>
-              </a>
-            </>
-          )}
+          </div>
+          <div className="hidden md:block">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button className="bg-teal-900 hover:bg-teal-600 text-white rounded-md">
+                Get Resume
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     </header>

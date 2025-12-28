@@ -1,29 +1,70 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowRight, Rss } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
-import { getLatestPosts } from '@/content/blog';
+import data from '@/data';
+import { config } from '@/lib/config';
+import { getAllPosts } from '@/content/blog';
 
-const BlogSection = () => {
+const title = 'Blog';
+const description =
+  'On-site articles by Shubhendu Vaid on engineering leadership, architecture, and building reliable platforms.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: `${config.app.url}/blog`,
+  },
+  openGraph: {
+    title,
+    description,
+    url: `${config.app.url}/blog`,
+  },
+  twitter: {
+    title,
+    description,
+  },
+};
+
+export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
-    <div title="Latest Articles" id="section-articles">
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-              Latest Articles
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Insights on engineering leadership, architecture, and building
-              scalable systems that drive innovation.
+    <main className="flex-grow">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container text-center md:text-left">
+          <div className="max-w-3xl">
+            <p className="text-sm uppercase tracking-wide text-blue-600 font-semibold">
+              {data.name}
             </p>
+            <h1 className="text-4xl md:text-5xl font-bold mt-3">{title}</h1>
+            <p className="text-lg md:text-xl text-gray-600 mt-4">
+              {description}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+              <Button asChild className="bg-teal-900 hover:bg-teal-600 text-white">
+                <Link href="/#section-contact">Start a conversation</Link>
+              </Button>
+              <Button variant="outline" asChild className="border-gray-800">
+                <a href="/rss.xml" className="inline-flex items-center gap-2">
+                  <Rss className="h-4 w-4" />
+                  RSS feed
+                </a>
+              </Button>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {getLatestPosts(3).map((post) => (
+      <section className="py-14 md:py-20">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
               <Card
-                key={post.title}
+                key={post.slug}
                 className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden"
                 itemScope
                 itemType="https://schema.org/BlogPosting"
@@ -43,11 +84,6 @@ const BlogSection = () => {
                       {post.category}
                     </span>
                   </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg">
-                      <ArrowRight className="h-4 w-4 text-gray-700" />
-                    </div>
-                  </div>
                 </div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 text-sm text-gray-500 mb-4">
@@ -64,9 +100,9 @@ const BlogSection = () => {
                     <span>•</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
+                  <h2 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
                     <span itemProp="headline">{post.title}</span>
-                  </h3>
+                  </h2>
                   <p
                     className="text-gray-600 line-clamp-3 leading-relaxed"
                     itemProp="description"
@@ -93,23 +129,8 @@ const BlogSection = () => {
               </Card>
             ))}
           </div>
-
-          <div className="text-center">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-              asChild
-            >
-              <Link href="/blog" className="flex items-center gap-2">
-                View All Articles
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </Button>
-          </div>
         </div>
       </section>
-    </div>
+    </main>
   );
-};
-
-export default BlogSection;
+}

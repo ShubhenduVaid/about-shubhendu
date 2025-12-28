@@ -1,8 +1,12 @@
 import type { MetadataRoute } from 'next';
+import { config } from '@/lib/config';
+import { getAllPosts } from '@/content/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.shubhenduvaid.com';
+  const baseUrl = config.app.url;
   const currentDate = new Date();
+
+  const posts = getAllPosts();
 
   return [
     {
@@ -12,40 +16,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/#section-about`,
+      url: `${baseUrl}/case-studies`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/#section-experience`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#section-articles`,
+      url: `${baseUrl}/blog`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
-    {
-      url: `${baseUrl}/#section-advisory`,
-      lastModified: currentDate,
+    ...posts.map<MetadataRoute.Sitemap[number]>((post) => ({
+      url: `${baseUrl}${post.link}`,
+      lastModified: new Date(post.dateIso),
       changeFrequency: 'monthly',
       priority: 0.7,
-    },
+    })),
     {
-      url: `${baseUrl}/#faq`,
+      url: `${baseUrl}/leadership-philosophy`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/#section-contact`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.7,
     },
   ];
 }
