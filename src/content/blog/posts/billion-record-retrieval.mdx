@@ -1,0 +1,170 @@
+## TL;DR
+- Fast retrieval at billion-scale requires the right data model, not just faster hardware.
+- This walkthrough uses **Apache Cassandra**, **Docker**, and **Spring Boot** to build a scalable read path.
+- Key ideas: partition by country, use a compound primary key, and query by partition for predictable latency.
+- A Postman test returned a **27 ms** lookup for a single record out of a billion.
+
+## Why this problem matters
+Retrieving large datasets efficiently is critical for competitive, high-performing applications. The challenge is not just storing billions of records, but keeping **read latency low and predictable** as data grows.
+
+This solution uses:
+
+- **Apache Cassandra** for distributed, high-throughput storage
+- **Docker** for repeatable local infrastructure
+- **Spring Boot** for clean API integration
+
+## Prerequisites
+- Docker
+- Spring Boot
+- Postman
+
+## Step 1: Create a Cassandra cluster on Docker
+Start by creating an isolated network for Cassandra:
+
+```
+docker network create cassandra-network
+```
+
+Run a seed node:
+
+```
+docker run -d --name cassandra-seed \
+  --network cassandra-network \
+  -e CASSANDRA_CLUSTER_NAME="MyCluster" \
+  -e CASSANDRA_SEEDS="cassandra-seed" \
+  -e CASSANDRA_LISTEN_ADDRESS="cassandra-seed" \
+  -e CASSANDRA_BROADCAST_ADDRESS="cassandra-seed" \
+  -p 9042:9042 \
+  cassandra:latest
+```
+
+Add node 1 and node 2:
+
+```
+docker run -d --name cassandra-node1 \
+  --network cassandra-network \
+  -e CASSANDRA_CLUSTER_NAME="MyCluster" \
+  -e CASSANDRA_SEEDS="cassandra-seed" \
+  -e CASSANDRA_LISTEN_ADDRESS="cassandra-node1" \
+  -e CASSANDRA_BROADCAST_ADDRESS="cassandra-node1" \
+  cassandra:latest
+```
+
+```
+docker run -d --name cassandra-node2 \
+  --network cassandra-network \
+  -e CASSANDRA_CLUSTER_NAME="MyCluster" \
+  -e CASSANDRA_SEEDS="cassandra-seed" \
+  -e CASSANDRA_LISTEN_ADDRESS="cassandra-node2" \
+  -e CASSANDRA_BROADCAST_ADDRESS="cassandra-node2" \
+  cassandra:latest
+```
+
+Connect via cqlsh:
+
+```
+cqlsh
+```
+
+## Step 2: Create keyspace and schema
+Replication factor of 3:
+
+```
+CREATE KEYSPACE billion
+WITH replication = {
+  'class': 'SimpleStrategy',
+  'replication_factor': 3
+};
+```
+
+Create the users table with a **partition key of country**:
+
+```
+CREATE TABLE billion.users (
+  id UUID,
+  name TEXT,
+  email TEXT,
+  dob DATE,
+  address TEXT,
+  phone TEXT,
+  country TEXT,
+  date_created TIMESTAMP,
+  PRIMARY KEY ((country), id)
+);
+```
+
+The partition key ensures Cassandra reads are localized and efficient.
+
+## Step 3: Spring Boot API for reads/writes
+Create a **User** service with three endpoints:
+
+```
+@GetMapping("/{country}/{id}")
+public ResponseEntity<User> getUserByCountryAndID(@PathVariable String country, @PathVariable UUID id) {
+  return userService.getUserByCountryAndId(country, id)
+      .map(ResponseEntity::ok)
+      .orElse(ResponseEntity.notFound().build());
+}
+
+@GetMapping("/{country}")
+public ResponseEntity<List<User>> getUsersByCountry(@PathVariable String country) {
+  return userService.getUserByCountry(country)
+      .map(ResponseEntity::ok)
+      .orElse(ResponseEntity.notFound().build());
+}
+
+@PostMapping
+public ResponseEntity<User> createUser(@RequestBody User userRequest) {
+  User user = new User();
+  user.setId(UUID.randomUUID());
+  user.setName(userRequest.getName());
+  user.setEmail(userRequest.getEmail());
+  user.setAddress(userRequest.getAddress());
+  user.setDob(LocalDate.now());
+  user.setPhone(userRequest.getPhone());
+  user.setCountry(userRequest.getCountry());
+  user.setDate_created(LocalDateTime.now());
+  user = userService.saveUser(user);
+  return ResponseEntity.ok(user);
+}
+```
+
+Create a second Spring Boot service (**UserCreater**) to generate large volumes:
+
+```
+@GetMapping("/generate-users")
+public String generateUsers() {
+  userService.generateAndPostUsers(1_000_000_000);
+  return "User generation started!";
+}
+```
+
+**Tip:** DbVisualizer is a simple free UI for Cassandra inspection.
+
+## Step 4: Validate performance
+Using Postman, querying a specific user by country + ID returned:
+
+**27 ms** for a single record out of a billion.
+
+This excludes network latency, but confirms the partition strategy keeps reads fast.
+
+## Cleanup
+After testing:
+
+```
+DROP TABLE billion.users;
+```
+
+## Source code
+- User Creator: https://github.com/ShubhenduVaid/javaUserCreater
+- User Service: https://github.com/ShubhenduVaid/javaUser
+
+## More reading on Cassandra
+- https://cassandra.apache.org/_/index.html
+- https://cassandra.apache.org/_/quickstart.html
+- https://www.baeldung.com/cassandra-with-java
+- https://www.baeldung.com/cassandra-replication-partitioning
+
+---
+
+If you are scaling data retrieval in a distributed system and want guidance on data modeling, partitioning, or API strategy, feel free to reach out.

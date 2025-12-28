@@ -1,0 +1,102 @@
+## TL;DR
+- The AI tool ecosystem is fragmented. Engineers jump between Amazon Q, Claude, Gemini, and local models like Ollama depending on the task.
+- This introduces context switching, inconsistent quality, and single-model bias.
+- I built **AI Consensus CLI**, an open-source Rust CLI that queries multiple AI tools in parallel and synthesizes a single consensus response.
+- The tool is configurable via TOML, uses async execution with Tokio, and gracefully handles unavailable tools.
+
+## The problem: AI tool fragmentation
+The proliferation of specialized AI models is a blessing and a complexity tax. In day-to-day engineering work, this often looks like:
+
+- **Amazon Q** for AWS-specific questions
+- **Claude** for complex reasoning tasks
+- **Gemini** for creative problem-solving
+- **Local models (Ollama)** for privacy-sensitive work
+
+The downside is a fragmented workflow where engineers must manually switch contexts across tools.
+
+That manual orchestration is slow and error-prone. You end up trusting a single-model perspective on critical reasoning tasks, which becomes a single point of failure.
+
+## The solution: AI Consensus CLI
+To address this, I built **AI Consensus CLI** (Rust, open source). As a London-based engineering leader, I wanted a tool that makes multi-model reasoning fast, reliable, and repeatable. It acts as an aggregation and synthesis layer:
+
+- It runs **multiple solver LLMs in parallel** with the same prompt.
+- It feeds all outputs into a **consensus engine** that synthesizes agreements, disagreements, and unique insights.
+- It uses a **TOML-based configuration** so you can add new tools without recompiling.
+- It is **async-first** with Rust and Tokio for performance and reliability.
+
+In short: you get the speed of parallel execution, the diversity of multiple models, and a single actionable answer.
+
+## How it works in practice
+```
+# Get insights from multiple AIs with consensus
+ai-co -s q,gemini,ollama -c claude -p "Design a microservices architecture for e-commerce"
+
+# Compare different perspectives
+ai-co -s q,claude,gemini -c q -p "Optimize database performance for high-traffic applications"
+```
+
+The CLI executes your query across all selected **solver** models, then passes the responses to a **consensus** model that synthesizes the result.
+
+## Technical architecture (Rust + Tokio)
+The CLI is built in Rust for performance and predictable concurrency:
+
+- **Async/Await**: Parallel tool execution with Tokio
+- **Error resilience**: Graceful handling of unavailable tools
+- **Extensible config**: TOML definitions for each model provider
+- **Cross-platform**: Works on Linux and macOS
+
+The modular design keeps the orchestration layer stable while allowing new AI tools to be plugged in quickly.
+
+## Real-world applications
+This approach is useful in any scenario where multiple perspectives matter:
+
+- **Architecture decisions**: Compare design tradeoffs across models
+- **Code reviews**: Get multiple viewpoints on correctness and maintainability
+- **Problem solving**: Blend different reasoning styles into one answer
+- **Research and discovery**: See how different models frame the same topic
+
+## Key benefits
+1. **Diverse perspectives**: Each model brings unique training and reasoning
+2. **Time efficiency**: Multiple answers in one round-trip
+3. **Bias reduction**: Consensus helps surface blind spots in single-model answers
+4. **Quality assurance**: Cross-validation improves reliability
+
+## Adoption checklist (practical tips)
+If you want to operationalize multi-model consensus in a team setting, these patterns help:
+
+- **Standardize prompts** so solvers see consistent input
+- **Define consensus criteria** (agreement, novelty, risk) before you scale usage
+- **Track cost and latency** to avoid tool sprawl
+- **Separate sensitive data paths** for privacy and compliance
+- **Store reasoning trails** so decisions are auditable
+
+## Open source and community-driven
+The project is open source and available on GitHub:
+
+Repository: https://github.com/ShubhenduVaid/ai-consensus-cli
+
+The goal is to build a community around multi-AI orchestration and consensus building.
+
+## Looking forward
+Potential enhancements include:
+
+- Web interface for non-technical users
+- Integration with additional AI providers
+- Advanced consensus algorithms
+- Team collaboration workflows
+- API access for programmatic use
+
+## The bigger picture
+As AI tools continue to multiply, orchestration and synthesis become a competitive advantage. A consensus-first workflow lets teams leverage the strengths of multiple models instead of being locked into a single ecosystem.
+
+**AI Consensus CLI** is a step toward that future: collaborative AI systems that deliver richer, more reliable insights.
+
+---
+
+**Try it out:** The CLI is available now on GitHub with installation instructions and examples.
+
+*What is your experience with multiple AI tools? Have you wished for a way to get diverse AI perspectives quickly? I would love to hear your use cases.*
+
+**Keywords:** AI orchestration, consensus CLI, multi-LLM workflows, Rust, Tokio, Amazon Q, Claude, Gemini, Ollama, open source, software architecture, engineering leadership.
+
+**Tags:** #AI #MachineLearning #Rust #OpenSource #CLI #Consensus #ArtificialIntelligence #SoftwareDevelopment #Innovation

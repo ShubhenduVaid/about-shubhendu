@@ -173,7 +173,6 @@ export default data;
 export {
   achievements,
   advisoryServices,
-  articles,
   footerLinks,
   navLinks,
   stats,

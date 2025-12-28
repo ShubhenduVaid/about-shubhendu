@@ -21,6 +21,7 @@ Shubhendu offers paid 1:1 advisory and consulting on engineering leadership coac
 - About: https://www.shubhenduvaid.com/#section-about
 - Experience: https://www.shubhenduvaid.com/#section-experience
 - Case Studies: https://www.shubhenduvaid.com/case-studies
+- Blog: https://www.shubhenduvaid.com/blog
 - Articles: https://www.shubhenduvaid.com/#section-articles
 - Leadership Philosophy: https://www.shubhenduvaid.com/leadership-philosophy
 - Advisory: https://www.shubhenduvaid.com/#section-advisory

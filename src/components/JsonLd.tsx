@@ -1,6 +1,7 @@
-import data, { articles, caseStudies } from '@/data';
+import data, { caseStudies } from '@/data';
 import { faqs } from '@/data/faqs';
 import { config } from '@/lib/config';
+import { getAllPosts } from '@/content/blog';
 
 export default function JsonLd() {
   const baseUrl = config.app.url;
@@ -150,13 +151,14 @@ export default function JsonLd() {
     })),
   };
 
+  const posts = getAllPosts();
   const articleListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: articles.map((article, index) => ({
+    itemListElement: posts.map((article, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: article.link,
+      url: `${baseUrl}${article.link}`,
       name: article.title,
     })),
   };
