@@ -1,8 +1,10 @@
+By lunchtime I have already bounced between Amazon Q, Claude, Gemini, and a local model. Each gives a slightly different answer. The context switching is real, and the contradictions add up. That is the tax of AI tool fragmentation.
+
 ## TL;DR
-- The AI tool ecosystem is fragmented. Engineers jump between Amazon Q, Claude, Gemini, and local models like Ollama depending on the task.
-- This introduces context switching, inconsistent quality, and single-model bias.
-- I built **AI Consensus CLI**, an open-source Rust CLI that queries multiple AI tools in parallel and synthesizes a single consensus response.
-- The tool is configurable via TOML, uses async execution with Tokio, and gracefully handles unavailable tools.
+- The AI tool ecosystem is fragmented, and swapping between tools slows delivery.
+- This creates context switching, inconsistent quality, and single-model bias.
+- I built **AI Consensus CLI**, an open-source Rust CLI that queries multiple tools in parallel and synthesizes a single consensus response.
+- The tool is configurable via TOML, uses async execution with Tokio, and handles unavailable tools gracefully.
 
 ## The problem: AI tool fragmentation
 The proliferation of specialized AI models is a blessing and a complexity tax. In day-to-day engineering work, this often looks like:
@@ -15,6 +17,10 @@ The proliferation of specialized AI models is a blessing and a complexity tax. I
 The downside is a fragmented workflow where engineers must manually switch contexts across tools.
 
 That manual orchestration is slow and error-prone. You end up trusting a single-model perspective on critical reasoning tasks, which becomes a single point of failure.
+
+| Geek Corner |
+|:--|
+| Consensus is not just averaging. It is about surfacing agreement, disagreement, and the one model that saw the edge case everyone else missed. |
 
 ## The solution: AI Consensus CLI
 To address this, I built **AI Consensus CLI** (Rust, open source). As a London-based engineering leader, I wanted a tool that makes multi-model reasoning fast, reliable, and repeatable. It acts as an aggregation and synthesis layer:
