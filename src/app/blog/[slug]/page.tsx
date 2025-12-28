@@ -10,7 +10,7 @@ import {
 } from '@/content/blog';
 
 type BlogPostPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export const generateStaticParams = async () =>
@@ -19,7 +19,8 @@ export const generateStaticParams = async () =>
 export const generateMetadata = async ({
   params,
 }: BlogPostPageProps): Promise<Metadata> => {
-  const post = getPostMetaBySlug(params.slug);
+  const { slug } = await params;
+  const post = getPostMetaBySlug(slug);
 
   if (!post) {
     return {};
@@ -48,7 +49,8 @@ export const generateMetadata = async ({
 };
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
