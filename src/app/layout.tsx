@@ -75,6 +75,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: config.app.url,
+    types: {
+      'application/rss+xml': [
+        {
+          url: `${config.app.url}/rss.xml`,
+          title: 'Shubhendu Vaid Blog',
+        },
+      ],
+    },
   },
   openGraph: {
     type: 'website',
@@ -126,11 +134,6 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
-        <link
-          rel="canonical"
-          href={config.app.url}
-          key="canonical"
-        />
         <meta name="geo.region" content="GB-LND" />
         <meta name="geo.placename" content="London" />
         <meta name="geo.position" content="51.5074;-0.1278" />

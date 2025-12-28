@@ -31,19 +31,29 @@ export const generateMetadata = async ({
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: post.tags,
     alternates: {
       canonical,
     },
     openGraph: {
+      type: 'article',
       title: post.title,
       description: post.excerpt,
       url: canonical,
-      images: [{ url: post.image }],
+      siteName: 'Shubhendu Vaid - Engineering Leader',
+      locale: 'en_GB',
+      images: [{ url: post.image, alt: post.title }],
+      publishedTime: post.dateIso,
+      authors: [`${config.app.url}/#person`],
+      section: post.category,
+      tags: post.tags,
     },
     twitter: {
+      card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
       images: [post.image],
+      creator: '@shubhenduvaid',
     },
   };
 };

@@ -29,13 +29,14 @@ export const GET = async () => {
     .join('');
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shubhendu Vaid Blog</title>
     <link>${siteUrl}/blog</link>
     <description>On-site articles by Shubhendu Vaid on engineering leadership, architecture, and reliable platforms.</description>
     <language>en-GB</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml" />
     ${items}
   </channel>
 </rss>`;
