@@ -128,10 +128,10 @@ export const getPostBySlug = async (slug: string): Promise<BlogPost | null> => {
     return null;
   }
 
-  const module = await loader();
+  const mdxModule = await loader();
 
   return {
     ...meta,
-    Component: module.default,
+    Component: mdxModule.default,
   };
 };

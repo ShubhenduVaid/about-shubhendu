@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    ...posts.map((post) => ({
+    ...posts.map<MetadataRoute.Sitemap[number]>((post) => ({
       url: `${baseUrl}${post.link}`,
       lastModified: new Date(post.dateIso),
       changeFrequency: 'monthly',
